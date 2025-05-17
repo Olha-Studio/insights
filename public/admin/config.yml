@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: dev
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
@@ -15,5 +15,3 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }
-
-local_backend: true  # optional (helps test locally later)
