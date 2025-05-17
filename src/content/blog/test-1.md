@@ -1,5 +1,6 @@
 ---
 title: Test 1
-date: 2025-05-18T00:03:00.000Z
+description: This is a test post from CMS
+pubDate: 2025-05-18T00:10:00.000Z
 ---
-test content
+test 2 - content
