@@ -2,24 +2,26 @@
   command = "npm run build"
   publish = "dist"
 
+# ✅ Allow access to the CMS admin panel
 [[redirects]]
   from = "/admin/*"
   to = "/admin/index.html"
   status = 200
 
-# Disable indexing for deploy previews (e.g. dev--*.netlify.app)
+# ✅ Prevent search engines from indexing deploy previews
 [context.deploy-preview]
   command = "npm run build"
 
 [[context.deploy-preview.headers]]
   for = "/*"
   [context.deploy-preview.headers.values]
-    X-Robots-Tag = "noindex"
+  X-Robots-Tag = "noindex"
 
 [[context.deploy-preview.headers]]
   for = "/robots.txt"
   [context.deploy-preview.headers.values]
-    X-Robots-Tag = "noindex"
+  X-Robots-Tag = "noindex"
 
+# ✅ Production environment (custom domain)
 [context.production.environment]
   ASTRO_SITE = "https://insights.webim.space"
