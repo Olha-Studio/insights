@@ -1,0 +1,71 @@
+---
+title: '🧱 CSS Layout Basics: Grid, Flexbox, and Column Positioning'
+description: 'Learn how to structure modern web layouts using CSS Grid, Flexbox, and column techniques.'
+pubDate: 'Jun 01 2024'
+heroImage: '/blog-placeholder-5.jpg'
+---
+
+## ✅ Flexbox Basics
+
+Flexbox is great for 1D layouts (either horizontal or vertical).
+
+```css
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+```
+
+### Common Properties:
+- `justify-content`: horizontal alignment
+- `align-items`: vertical alignment
+- `flex-direction`: `row | column`
+- `gap`: spacing between items
+
+---
+
+## ✅ Grid Basics
+
+CSS Grid is perfect for 2D layouts (rows + columns).
+
+```css
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 16px;
+}
+```
+
+### Common Properties:
+- `grid-template-columns`: defines column sizes
+- `grid-template-rows`: defines row sizes
+- `grid-column / grid-row`: item positioning
+- `place-items`: shorthand for align + justify
+
+---
+
+## ✅ Columns (Multi-Column Layout)
+
+Simple way to flow text/content into columns:
+
+```css
+.columns {
+  column-count: 3;
+  column-gap: 24px;
+}
+```
+
+---
+
+## 🔁 When to Use What
+
+| Layout Type      | Best Tool     |
+|------------------|---------------|
+| 1D (row/column)  | Flexbox       |
+| 2D (grid layout) | CSS Grid      |
+| Text flow        | CSS Columns   |
+
+---
+
+Explore and combine these techniques for powerful responsive designs.
