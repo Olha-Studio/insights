@@ -1,0 +1,25 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+# Disable indexing for deploy previews (e.g. dev--*.netlify.app)
+[context.deploy-preview]
+  command = "npm run build"
+
+[[context.deploy-preview.headers]]
+  for = "/*"
+  [context.deploy-preview.headers.values]
+    X-Robots-Tag = "noindex"
+
+[[context.deploy-preview.headers]]
+  for = "/robots.txt"
+  [context.deploy-preview.headers.values]
+    X-Robots-Tag = "noindex"
+
+[context.production.environment]
+  ASTRO_SITE = "https://insights.webim.space"
