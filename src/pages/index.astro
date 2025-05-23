@@ -5,45 +5,91 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Serhii!!!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>👋 Hey, I’m Olha</h1>
+      <p>Welcome to my personal site!</p>
+      <p>
+        I’ve spent 15 years in the web world — designing, coding, and building
+        pages that work. This is where I share what I’ve learned (and what I’m
+        still figuring out).
+      </p>
+      <p>
+        If you care about creating websites that look great and work
+        well — you’re in the right place.
+      </p>
+      <section>
+        <h2>💡 What I Share Here</h2>
+        <ul>
+          <li>✨ Easy design tips to make your pages cleaner and clearer</li>
+          <li>🧰 Frontend how-tos — CSS3, Tailwind, Animations</li>
+          <li>📈 Real advice on building high-conversion landing pages</li>
+          <li>🔍 Behind-the-scenes from projects, tools, and client work</li>
+          <li>
+            🎓 Progress updates on my upcoming course (for designers and small
+            business owners)
+          </li>
+        </ul>
+        <p>
+          Everything here is simple, useful, and based on real work — not just
+          theory.
+        </p>
+      </section>
+      <section>
+        <h2>🎯 Why I Started This</h2>
+        <p>
+          I wanted a space to share
+          <strong>practical things that actually help</strong> — not long-winded
+          think pieces or recycled trends. Just short, valuable ideas you can
+          use.
+        </p>
+        <p>
+          Whether you’re a designer, small business owner, or just someone who
+          builds things online — I hope this blog gives you something useful or
+          inspiring.
+        </p>
+      </section>
+
+      <section>
+        <h2>🚀 What’s Coming</h2>
+        <p>
+          I'm working on a course for people who want to create better websites
+          — without the guesswork, fluff, or relying on someone else to “just
+          code it.”
+        </p>
+        <p>
+          👉 <a href="#subscribe">Join the waitlist</a> to get early access.
+        </p>
+      </section>
+      <section>
+        <h2>🙋‍♀️ A Bit About Me</h2>
+        <p>
+          Top Rated UX/UI designer and frontend
+          developer. I’ve worked with clients from all over the world on Upwork
+          and beyond.
+        </p>
+        <p>
+          🔗
+          <a href="https://www.upwork.com/fl/webim" target="_blank"
+            >Check out my portfolio</a
+          >
+        </p>
+      </section>
+
+      <footer>
+        <p>
+          Thanks for being here ✨<br />
+          Feel free to <a href="/insights">browse the latest posts</a> or
+          <a href="#subscribe">subscribe</a> to stay in the loop.
+        </p>
+      </footer>
+    </main>
+    <Footer />
+  </body>
 </html>

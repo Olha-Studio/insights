@@ -1,31 +1,71 @@
 ---
-title: 'Using MDX'
-description: 'Lorem ipsum dolor sit amet'
+title: '🧱 CSS Layout Basics: Grid, Flexbox, and Column Positioning'
+description: 'Learn how to structure modern web layouts using CSS Grid, Flexbox, and column techniques.'
 pubDate: 'Jun 01 2024'
 heroImage: '/blog-placeholder-5.jpg'
 ---
 
-This theme comes with the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in your `astro.config.mjs` config file. If you prefer not to use MDX, you can disable support by removing the integration from your config file.
+## ✅ Flexbox Basics
 
-## Why MDX?
+Flexbox is great for 1D layouts (either horizontal or vertical).
 
-MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into your Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+```css
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+```
 
-If you have existing content authored in MDX, this integration will hopefully make migrating to Astro a breeze.
+### Common Properties:
+- `justify-content`: horizontal alignment
+- `align-items`: vertical alignment
+- `flex-direction`: `row | column`
+- `gap`: spacing between items
 
-## Example
+---
 
-Here is how you import and use a UI component inside of MDX.  
-When you open this page in the browser, you should see the clickable button below.
+## ✅ Grid Basics
 
-import HeaderLink from '../../components/HeaderLink.astro';
+CSS Grid is perfect for 2D layouts (rows + columns).
 
-<HeaderLink href="#" onclick="alert('clicked!')">
-	Embedded component in MDX
-</HeaderLink>
+```css
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 16px;
+}
+```
 
-## More Links
+### Common Properties:
+- `grid-template-columns`: defines column sizes
+- `grid-template-rows`: defines row sizes
+- `grid-column / grid-row`: item positioning
+- `place-items`: shorthand for align + justify
 
-- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
-- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
-- **Note:** [Client Directives](https://docs.astro.build/en/reference/directives-reference/#client-directives) are still required to create interactive components. Otherwise, all components in your MDX will render as static HTML (no JavaScript) by default.
+---
+
+## ✅ Columns (Multi-Column Layout)
+
+Simple way to flow text/content into columns:
+
+```css
+.columns {
+  column-count: 3;
+  column-gap: 24px;
+}
+```
+
+---
+
+## 🔁 When to Use What
+
+| Layout Type      | Best Tool     |
+|------------------|---------------|
+| 1D (row/column)  | Flexbox       |
+| 2D (grid layout) | CSS Grid      |
+| Text flow        | CSS Columns   |
+
+---
+
+Explore and combine these techniques for powerful responsive designs.

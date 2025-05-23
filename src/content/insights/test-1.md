@@ -1,117 +1,132 @@
 ---
-title: Getting Started with GSAP
-description: This is a test post from CMS
+title: 🚀 Astro + Netlify + Decap CMS Setup Guide
+description: This guide walks you through the **best-practice workflow** for creating a blazing-fast Astro project, connecting it to GitHub, managing content with Decap CMS, and deploying it with Netlify — including Identity + Git Gateway setup.
 pubDate: 2025-05-18T00:10:00.000Z
 ---
-# ✨ Getting Started with GSAP (GreenSock Animation Platform)
 
-GSAP (GreenSock Animation Platform) is a powerful JavaScript library for creating high-performance, professional-grade animations on the web.
-
-This guide walks you through the basics of how to install and use GSAP in your project — with examples for timelines, scroll-based animations, and more.
-
----
-
-## ✅ Step 1: Install GSAP
-
-### Option A: Using npm
+## ✅ Step 1: Create a New Astro Project
 
 ```bash
-npm install gsap
-```
-
-### Option B: Using CDN
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+npm create astro@latest
+cd your-project
+npm install
 ```
 
 ---
 
-## ✅ Step 2: Basic Animation Example
-
-```html
-<div class="box"></div>
-
-<style>
-  .box {
-    width: 100px;
-    height: 100px;
-    background: #4CAF50;
-    margin: 50px;
-  }
-</style>
-
-<script>
-  gsap.to(".box", {
-    x: 300,
-    duration: 2,
-    ease: "power2.out"
-  });
-</script>
-```
-
----
-
-## ✅ Step 3: Create a Timeline
-
-```js
-const tl = gsap.timeline();
-
-tl.to(".box", { x: 200, duration: 1 });
-tl.to(".box", { y: 100, duration: 1 });
-tl.to(".box", { rotation: 45, duration: 0.5 });
-```
-
----
-
-## ✅ Step 4: Scroll-Based Animations (ScrollTrigger)
-
-First, install the plugin:
+## ✅ Step 2: Initialize Git & Connect to GitHub
 
 ```bash
-npm install gsap@npm:@gsap/business --save
+git init
+git checkout -b dev
+git remote add origin git@github.com:yourname/yourrepo.git
+git add .
+git commit -m "Initial commit"
+git push -u origin dev
 ```
 
-Or via CDN:
+> Optional: Create a production branch
+
+```bash
+git checkout -b main
+git push -u origin main
+```
+
+---
+
+## ✅ Step 3: Install and Configure Decap CMS
+
+Install:
+
+```bash
+npm install decap-cms
+```
+
+Create CMS files:
+
+### `public/admin/index.html`
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8" /><title>Decap CMS</title></head>
+  <body>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </body>
+</html>
 ```
 
-### Example Usage:
+### `public/admin/config.yml`
 
-```js
-gsap.registerPlugin(ScrollTrigger);
+```yaml
+backend:
+  name: git-gateway
+  branch: dev
 
-gsap.to(".box", {
-  scrollTrigger: {
-    trigger: ".box",
-    start: "top center",
-    end: "bottom top",
-    scrub: true
-  },
-  x: 400,
-  rotation: 180
-});
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: blog
+    label: Blog
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
 ```
 
 ---
 
-## 🧠 Tips
+## ✅ Step 4: Deploy to Netlify
 
-- Use `.from()` to animate from a starting state.
-- Use `.set()` for instant property changes.
-- `scrub: true` makes scroll-linked animations smooth.
-- Combine with CSS Grid, Flexbox, or SVG for complex motion layouts.
-
----
-
-## 🔗 Official Docs
-
-- [GSAP Docs](https://gsap.com/docs/)
-- [ScrollTrigger Docs](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)
-- [CodePen Examples](https://codepen.io/GreenSock)
+1. Go to [Netlify](https://app.netlify.com/) → **New site from Git**
+2. Connect your GitHub repo
+3. Configure:
+   - **Build command**: `npm run build`
+   - **Publish directory**: `dist/`
+   - **Branch**: `dev`
 
 ---
 
-With GSAP, you can bring your UI to life with smooth transitions, scroll effects, SVG animations, and more — all with high performance and great browser support.
+## ✅ Step 5: Enable Netlify Identity + Git Gateway
+
+- Go to **Site Settings → Identity**
+  - Enable **Identity**
+  - Enable **Git Gateway** under "Services"
+- Invite yourself as a user
+- Login at:  
+  `https://your-site.netlify.app/admin`
+
+---
+
+## ✅ Step 6: (Optional) Branch Deployment Workflow
+
+- Use `dev` for content edits and preview deploys
+- Use `main` for production (connected to a custom domain)
+- Merge `dev → main` when ready to go live
+
+Netlify supports separate deploys per branch automatically.
+
+---
+
+## ✅ Bonus Tips
+
+- Add `_redirects` in `public/`:
+
+```txt
+/admin/*  /admin/index.html  200
+```
+
+- Add `robots.txt` to disallow indexing `/admin/`
+
+```txt
+User-agent: *
+Disallow: /admin/
+```
+
+---
+
+That’s it! You now have a full-stack static CMS setup with Astro, GitHub, Decap CMS, and Netlify — flexible, fast, and future-proof. 💪
