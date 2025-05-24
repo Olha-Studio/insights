@@ -8,3 +8,6 @@ export default defineConfig({
 	site: 'https://insights.webim.space',
 	integrations: [mdx(), sitemap()],
 });
+
+
+
