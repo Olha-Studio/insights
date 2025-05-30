@@ -33,7 +33,7 @@ const image = heroImage ? heroImageMap[heroImage] : undefined;
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title || SITE_TITLE} description={description || SITE_DESCRIPTION} />
     <style>
       main {
         width: calc(100% - 2em);
