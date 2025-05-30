@@ -8,31 +8,69 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title="{SITE_TITLE}" description="{SITE_DESCRIPTION}" />
   </head>
   <body>
     <Header />
+    <style>
+  .tooltip-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-content {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 999;
+  min-width: 220px;
+}
+
+/* ✅ Keep visible when hovering either trigger OR tooltip itself */
+.tooltip-wrap:hover .tooltip-content {
+  opacity: 1;
+  pointer-events: auto;
+}
+.tooltip-wrap:hover .trigger {
+  text-decoration: underline;
+  color: var(--accent);
+}
+    </style>
     <main>
-      <h1>👋 Hey, I’m Olha</h1>
+      <div class="tooltip-wrap"><h1>👋 Hey, I’m <span class="trigger">Olha</span></h1>
+         <div class="tooltip-content">
+        <strong>Custom Title</strong>
+        <p>This is a paragraph inside the tooltip.</p>
+        <a href="#">Learn more →</a>
+      </div>
+      </div>
+     
       <p>Welcome to my personal site!</p>
       <p>
         I’ve spent 15 years in the web world — designing, coding, and building
         pages that work. This is where I share what I’ve learned (and what I’m
         still figuring out).
       </p>
-      <p>
-        If you care about creating websites that look great and work
-        well — you’re in the right place.
-      </p>
+      <p>If you care about creating websites — you’re in the right place.</p>
       <section>
         <h2>💡 What I Share Here</h2>
         <ul>
-          <li>✨ Easy design tips to make your pages cleaner and clearer</li>
-          <li>🧰 Frontend how-tos — CSS3, Tailwind, Animations</li>
-          <li>📈 Real advice on building high-conversion landing pages</li>
-          <li>🔍 Behind-the-scenes from projects, tools, and client work</li>
+          <li>Easy design tips to make your pages cleaner and clearer</li>
+          <li>Frontend how-tos — CSS3, Tailwind, Animations</li>
+          <li>Real advice on building high-conversion landing pages</li>
+          <li>Behind-the-scenes from projects, tools, and client work</li>
           <li>
-            🎓 Progress updates on my upcoming course (for designers and small
+            Progress updates on my upcoming course (for designers and small
             business owners)
           </li>
         </ul>
@@ -70,9 +108,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       <section>
         <h2>🙋‍♀️ A Bit About Me</h2>
         <p>
-          Top Rated UX/UI designer and frontend
-          developer. I’ve worked with clients from all over the world on Upwork
-          and beyond.
+          Top Rated UX/UI designer and frontend developer. I’ve worked with
+          clients from all over the world on Upwork and beyond.
         </p>
         <p>
           🔗

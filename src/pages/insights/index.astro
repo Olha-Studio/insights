@@ -5,10 +5,32 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import { Image } from 'astro:assets';
+import mpaViewTransitions from '../../assets/insights/mpa-view-transitions.png';
+import defaultPlaceholder from '../../assets/insights/default-placeholder.jpg';
+import blogPlaceholder2 from '../../assets/insights/blog-placeholder-2.jpg';
+import blogPlaceholder3 from '../../assets/insights/blog-placeholder-3.jpg';
+import blogPlaceholder4 from '../../assets/insights/blog-placeholder-4.jpg';
+import blogPlaceholder5 from '../../assets/insights/blog-placeholder-5.jpg';
+import blogPlaceholderAbout from '../../assets/insights/blog-placeholder-about.jpg';
+import designCoverRaw from '../../assets/insights/design-cover-raw.jpg';
 
 const posts = (await getCollection('insights')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+const heroImageMap = {
+  '/assets/insights/mpa-view-transitions.png': mpaViewTransitions,
+  '/assets/insights/default-placeholder.jpg': defaultPlaceholder,
+  '/assets/insights/blog-placeholder-2.jpg': blogPlaceholder2,
+  '/assets/insights/blog-placeholder-3.jpg': blogPlaceholder3,
+  '/assets/insights/blog-placeholder-4.jpg': blogPlaceholder4,
+  '/assets/insights/blog-placeholder-5.jpg': blogPlaceholder5,
+  '/assets/insights/blog-placeholder-about.jpg': blogPlaceholderAbout,
+  '/assets/insights/design-cover-raw.jpg': designCoverRaw,
+};
+
+const defaultImage = defaultPlaceholder;
 ---
 
 <!doctype html>
@@ -16,6 +38,8 @@ const posts = (await getCollection('insights')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
+
+
 			main {
 				width: 960px;
 			}
@@ -45,10 +69,18 @@ const posts = (await getCollection('insights')).sort(
 			ul li:first-child .title {
 				font-size: 2.369rem;
 			}
-			ul li img {
+			ul li img[data-image-component="true"] {
+				  aspect-ratio: 2 / 1;
+				    object-fit: cover;
 				margin-bottom: 0.5rem;
 				border-radius: 12px;
 			}
+
+
+
+
+
+
 			ul li a {
 				display: block;
 			}
@@ -91,17 +123,22 @@ const posts = (await getCollection('insights')).sort(
 			<section>
 				<ul>
 					{
-						posts.map((post) => (
-							<li>
-								<a href={`/insights/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
+						posts.map((post) => {
+							const image = heroImageMap[post.data.heroImage] || defaultImage;
+							return (
+								<li>
+									<a href={`/insights/${post.id}/`}>
+										{image ? (
+											<Image src={image} alt={post.data.title} width={720} height={360} style="width:100%;height:auto;border-radius:12px;box-shadow:var(--box-shadow);" />
+										) : null}
+										<h4 class="title">{post.data.title}</h4>
+										<p class="date">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+									</a>
+								</li>
+							);
+						})
 					}
 				</ul>
 			</section>

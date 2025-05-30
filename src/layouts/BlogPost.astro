@@ -4,12 +4,31 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-
-// No need to import images or use mapping logic
+import { Image } from 'astro:assets';
+import mpaViewTransitions from '../assets/insights/mpa-view-transitions.png';
+import blogPlaceholder1 from '../assets/insights/blog-placeholder-1.jpg';
+import blogPlaceholder2 from '../assets/insights/blog-placeholder-2.jpg';
+import blogPlaceholder3 from '../assets/insights/blog-placeholder-3.jpg';
+import blogPlaceholder4 from '../assets/insights/blog-placeholder-4.jpg';
+import blogPlaceholder5 from '../assets/insights/blog-placeholder-5.jpg';
+import blogPlaceholderAbout from '../assets/insights/blog-placeholder-about.jpg';
+import designCoverRaw from '../assets/insights/design-cover-raw.jpg';
 
 type Props = CollectionEntry<'insights'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+
+const heroImageMap = {
+  '/assets/insights/mpa-view-transitions.png': mpaViewTransitions,
+  '/assets/insights/blog-placeholder-1.jpg': blogPlaceholder1,
+  '/assets/insights/blog-placeholder-2.jpg': blogPlaceholder2,
+  '/assets/insights/blog-placeholder-3.jpg': blogPlaceholder3,
+  '/assets/insights/blog-placeholder-4.jpg': blogPlaceholder4,
+  '/assets/insights/blog-placeholder-5.jpg': blogPlaceholder5,
+  '/assets/insights/blog-placeholder-about.jpg': blogPlaceholderAbout,
+  '/assets/insights/design-cover-raw.jpg': designCoverRaw,
+};
+const image = heroImage ? heroImageMap[heroImage] : undefined;
 ---
 
 <html lang="en">
@@ -26,7 +45,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         max-width: 720px;
         margin: 0 auto 2rem auto;
       }
-      .hero-image img {
+      .hero-image img, .hero-image picture {
         display: block;
         width: 100%;
         height: auto;
@@ -59,31 +78,16 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       }
     </style>
   </head>
-
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-M5HXRM4X"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5HXRM4X" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <Header />
     <main>
       <article>
         <div class="hero-image">
-          {heroImage && (
-            <img
-              src={heroImage}
-              alt={title}
-              width="720"
-              height="360"
-              loading="lazy"
-              style="width:100%;height:auto;border-radius:12px;box-shadow:var(--box-shadow);"
-            />
+          {image && (
+            <Image src={image} alt={title} width={720} height={360} style="width:100%;height:auto;border-radius:12px;box-shadow:var(--box-shadow);" />
           )}
         </div>
         <div class="prose">

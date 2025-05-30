@@ -10,73 +10,18 @@ import { SITE_TITLE } from '../consts';
         <svg
           width="150"
           style="max-width: 200px; height: auto; vertical-align: middle"
-          viewBox="0 0 270 110"
+          viewBox="0 0 240 83"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
           focusable="false"
         >
-          <path
-            d="M105,22.5v64c0,4.42-3.58,8-8,8h-7.5c-.28,0-.5-.22-.5-.5V22.5c0-4.42,3.58-8,8-8h0c4.42,0,8,3.58,8,8Z"
-            style="fill: #049dbf"
-          />
-          <path
-            d="M245.77,94.5h-40.27c-.28,0-.5-.22-.5-.5v-19c0-.28-.22-.5-.5-.5h-19c-.28,0-.5-.22-.5-.5V15.02c0-.46.57-.68.87-.33l63.62,71.47c2.89,3.22.61,8.35-3.72,8.35Z"
-            style="fill: #049dbf"
-          />
-          <rect
-            x="185"
-            y="82.5"
-            width="12"
-            height="12"
-            rx=".5"
-            ry=".5"
-            style="fill: #f2b705"
-          />
-          <path
-            d="M48,14.5c-16.57,0-30,13.43-30,30s13.43,30,30,30,30-13.43,30-30-13.43-30-30-30Z"
-            style="fill: #f2b705"
-          />
-          <path
-            d="M56.06,60.38c0,3.9-3.16,7.06-7.06,7.06s-7.06-3.16-7.06-7.06c0,0,14.12,0,14.12,0Z"
-            style="fill: #fff"
-          />
-          <rect
-            x="108"
-            y="86.5"
-            width="16"
-            height="8"
-            rx="4"
-            ry="4"
-            style="fill: #03588c"
-          />
-          <rect
-            x="149"
-            y="78.5"
-            width="16"
-            height="8"
-            rx="4"
-            ry="4"
-            style="fill: #d9072d"
-          />
-          <path
-            d="M47.59,79.1l-8.43,12.27c-.91,1.33.04,3.13,1.65,3.13h14.4c1.61,0,2.56-1.81,1.65-3.13l-8.43-12.27c-.2-.29-.63-.29-.82,0Z"
-            style="fill: #d9072d"
-          />
-          <rect
-            x="133"
-            y="14.5"
-            width="16"
-            height="80"
-            rx=".5"
-            ry=".5"
-            style="fill: #049dbf"
-          />
-          <path
-            d="M133,50.5h75.5c.28,0,.5.22.5.5v7c0,.28-.22.5-.5.5h-75.5c-2.21,0-4-1.79-4-4h0c0-2.21,1.79-4,4-4Z"
-            transform="translate(223.5 -114.5) rotate(90)"
-            style="fill: #03588c"
-          />
-        </svg>
+    <path d="M239.58,80.83L167.58.83c-.19-.21-.47-.33-.74-.33-.12,0-.24.02-.36.07-.39.15-.64.52-.64.93v60c0,.55.45,1,1,1h19v19c0,.55.45,1,1,1h52c.4,0,.75-.23.91-.59s.09-.78-.17-1.08Z" style="fill: #00010d;"/>
+  <rect x="166.33" y="69" width="13" height="13" rx=".5" ry=".5" style="fill: #00010d;"/>
+  <path d="M30.16,1.5C13.59,1.5.16,14.93.16,31.5s13.43,30,30,30,30-13.43,30-30S46.73,1.5,30.16,1.5ZM30.16,56.44c-5.82,0-10.56-4.73-10.56-10.56,0-.28.22-.5.5-.5h20.13c.28,0,.5.22.5.5,0,5.83-4.74,10.56-10.57,10.56Z" style="fill: #00010d;"/>
+  <path d="M102.83,72.5h-15V1.5c0-.55-.45-1-1-1h-16c-.55,0-1,.45-1,1v80c0,.55.45,1,1,1h32c.55,0,1-.45,1-1v-8c0-.55-.45-1-1-1Z" style="fill: #00010d;"/>
+  <path d="M30.58,65.22c-.19-.27-.64-.27-.82,0l-11,16c-.1.15-.12.35-.03.52.09.17.26.27.44.27h22c.19,0,.36-.1.44-.27.09-.16.07-.36-.03-.52l-11-16Z" style="fill: #00010d;"/>
+  <path d="M154.83.5h-8c-.55,0-1,.45-1,1v63h-14V1.5c0-.55-.45-1-1-1h-16c-.55,0-1,.45-1,1v80c0,.55.45,1,1,1h16c.55,0,1-.45,1-1v-7h14v7c0,.55.45,1,1,1h8c.55,0,1-.45,1-1V1.5c0-.55-.45-1-1-1Z" style="fill: #00010d;"/>
+</svg>
         <span class="sr-only">{SITE_TITLE}</span>
       </a>
     </h2>
@@ -144,7 +89,6 @@ import { SITE_TITLE } from '../consts';
 <style>
   header {
     margin: 0;
-    padding: 0 1em;
     background: white;
     box-shadow: 0 2px 8px rgba(var(--black), 5%);
   }
@@ -161,6 +105,9 @@ import { SITE_TITLE } from '../consts';
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: var(--ws-desktop-width);
+    padding: 0 1rem;
+    margin: 0 auto;
   }
   nav a {
     padding: 1em 0.5em;
