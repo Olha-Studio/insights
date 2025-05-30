@@ -2,7 +2,7 @@
 title: '✨ Getting Started with GSAP (GreenSock Animation Platform)'
 description: 'GSAP (GreenSock Animation Platform) is a powerful JavaScript library for creating high-performance, professional-grade animations on the web. This guide walks you through the basics of how to install and use GSAP in your project — with examples for timelines, scroll-based animations, and more.'
 pubDate: 'Jul 22 2022'
-heroImage: '/blog-placeholder-2.jpg'
+heroImage: '/assets/insights/blog-placeholder-2.jpg'
 ---
 
 ## ✅ Step 1: Install GSAP

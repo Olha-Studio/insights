@@ -2,15 +2,76 @@
 title: 'First post'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 08 2022'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/assets/insights/mpa-view-transitions.png'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+# Cross-Document (MPA) View Transitions
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+Modern browsers now support a feature called **cross-document view transitions**, also known as **MPA view transitions**. This allows you to add smooth animated transitions between full page loads, making a traditional multi-page application (MPA) feel more like a single-page application (SPA).
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+## ✅ What Are MPA View Transitions?
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+MPA view transitions are built on the native [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API), currently available in Chromium-based browsers (Chrome 111+, Edge). It enables visual transitions (e.g. fades or slides) between full page navigations, without needing to build your site as an SPA.
+
+This is ideal for sites built with WordPress, Astro, Eleventy, or even plain HTML.
+
+## 🛠️ How It Works
+
+### 1. Opt into View Transitions
+
+Add this to the `<html>` tag on every page where transitions should work:
+
+```html
+<html view-transition>
+```
+
+### 2. Handle Navigation with JavaScript
+
+To trigger a smooth transition before navigating to the next page, intercept link clicks:
+
+```js
+if (document.startViewTransition) {
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', e => {
+      const url = link.href;
+      if (url.startsWith(location.origin)) {
+        e.preventDefault();
+        document.startViewTransition(() => {
+          window.location.href = url;
+        });
+      }
+    });
+  });
+}
+```
+
+### 3. Add CSS for the Transition
+
+You can customize the visual animation using CSS:
+
+```css
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: fade 0.4s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+```
+
+## 🚧 Limitations
+
+- Only works in Chromium browsers for now.
+- Both pages must have the `view-transition` attribute on `<html>`.
+- Works only for same-origin navigation.
+- You must intercept the click and manually trigger the transition with JavaScript.
+- Styling options are currently limited to pseudo-elements like `::view-transition-old(root)`.
+
+## 🔗 Resources
+
+- [MDN Docs on View Transitions](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API)
+- [Google Chrome Developer Guide](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [MPA View Transitions Demo (GitHub)](https://github.com/argyleink/animate-site-nav)

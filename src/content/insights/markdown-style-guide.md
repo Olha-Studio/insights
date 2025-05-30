@@ -2,7 +2,7 @@
 title: '🖼️ Understanding SVG `viewport` vs `viewBox`'
 description: 'SVG graphics use two key concepts to manage how they scale and display:.'
 pubDate: 'Jun 19 2024'
-heroImage: '/blog-placeholder-1.jpg'
+heroImage: '/assets/insights/blog-placeholder-1.jpg'
 ---
 
 ## ✅ Viewport
