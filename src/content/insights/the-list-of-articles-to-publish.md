@@ -3,8 +3,8 @@ title: The list of articles to publish
 description: The list of articles to publish
 pubDate: 2025-05-31T10:05:00.000Z
 ---
-* https://youtu.be/B_n4YONte5A?si=V_JLDWojMiDLROZ6
-* https://youtu.be/UgUQSm2JG6Y?si=_Z1XsETuDGDJKobD
+* https://youtu.be/B_n4YONte5A?si=V_JLDWojMiDLROZ6 - done
+* https://youtu.be/UgUQSm2JG6Y?si=_Z1XsETuDGDJKobD - done
 * https://youtu.be/K24lUqcT0Ms?si=6Y8xp_20GWIkpWUz
 * https://youtu.be/7DiKBDC7cz8?si=yhf29UDaLGd58qs1
 * https://youtu.be/eBbrEQw7kcg?si=kRwBNKN3l-0EaVxx
