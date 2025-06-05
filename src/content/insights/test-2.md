@@ -3,7 +3,7 @@ title: 100% SEO Friendly Site just in a few mins
 description: This is a test post from CMS
 pubDate: 2025-05-18T00:11:00.000Z
 ---
-# 🚀 Astro + Netlify + Decap CMS Setup Guide!
+# 🚀 Astro + Netlify + Decap CMS Setup Guide!!!
 
 This guide walks you through the **best-practice workflow** for creating a blazing-fast Astro project, connecting it to GitHub, managing content with Decap CMS, and deploying it with Netlify — including Identity + Git Gateway setup.
 
