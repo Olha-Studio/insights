@@ -1,5 +1,5 @@
 ---
-title: "How to Animate Height: 0 to Auto Using CSS Grid"
+title: "How to Animate Height: 0 to Auto Using CSS Grid!"
 description: A simple, practical tutorial to animate height transitions using
   grid-template-rows in CSS.
 pubDate: 2025-05-31T19:54:00.000Z
