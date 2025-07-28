@@ -1,11 +1,11 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={`Home | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
@@ -13,48 +13,49 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   <body>
     <Header />
     <style>
-  .tooltip-wrap {
-  position: relative;
-  display: inline-block;
-}
+      .tooltip-wrap {
+        position: relative;
+        display: inline-block;
+      }
 
-.tooltip-content {
-  position: absolute;
-  top: 120%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-  color: black;
-  border: 1px solid #ccc;
-  padding: 1em;
-  border-radius: 8px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-  z-index: 999;
-  min-width: 220px;
-}
+      .tooltip-content {
+        position: absolute;
+        top: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        color: black;
+        border: 1px solid #ccc;
+        padding: 1em;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+        z-index: 999;
+        min-width: 220px;
+      }
 
-/* ✅ Keep visible when hovering either trigger OR tooltip itself */
-.tooltip-wrap:hover .tooltip-content {
-  opacity: 1;
-  pointer-events: auto;
-}
-.tooltip-wrap:hover .trigger {
-  text-decoration: underline;
-  color: var(--accent);
-}
+      /* ✅ Keep visible when hovering either trigger OR tooltip itself */
+      .tooltip-wrap:hover .tooltip-content {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .tooltip-wrap:hover .trigger {
+        text-decoration: underline;
+        color: var(--accent);
+      }
     </style>
     <main>
-      <div class="tooltip-wrap"><h1>👋 Hey, I’m <span class="trigger">Olha</span></h1>
-         <div class="tooltip-content">
-        <strong>Custom Title</strong>
-        <p>This is a paragraph inside the tooltip.</p>
-        <a href="#">Learn more →</a>
+      <div class="tooltip-wrap">
+        <h1>👋 Hey, I’m <span class="trigger">Olha!!!</span></h1>
+        <div class="tooltip-content">
+          <strong>Custom Title</strong>
+          <p>This is a paragraph inside the tooltip.</p>
+          <a href="#">Learn more →</a>
+        </div>
       </div>
-      </div>
-     
+
       <p>Welcome to my personal site!</p>
       <p>
         I’ve spent 15 years in the web world — designing, coding, and building
@@ -84,8 +85,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         <p>
           I wanted a space to share
           <strong>practical things that actually help</strong> — not long-winded
-          think pieces or recycled trends. Just short, valuable ideas you can
-          use.
+          think pieces or recycled trends. Just short, valuable ideas you can use.
         </p>
         <p>
           Whether you’re a designer, small business owner, or just someone who
