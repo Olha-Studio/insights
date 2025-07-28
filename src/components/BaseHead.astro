@@ -57,21 +57,36 @@ const metaDescription = description || SITE_DESCRIPTION;
 <meta property="twitter:title" content={metaTitle} />
 <meta property="twitter:description" content={metaDescription} />
 <meta property="twitter:image" content={Astro.site ? new URL(image, Astro.site) : new URL(image, Astro.url)} />
+
+<!-- View Transitions Support -->
+<script>
+  // Enable view transitions for supported browsers
+  if (document.startViewTransition) {
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', e => {
+        const url = link.href;
+        if (url.startsWith(location.origin)) {
+          e.preventDefault();
+          document.startViewTransition(() => {
+            window.location.href = url;
+          });
+        }
+      });
+    });
+  }
+</script>
+
 <!-- Google Tag Manager -->
 <script>
-(function(w,d,s,l,i){
-  // @ts-ignore
-  w[l]=w[l]||[];
-  // @ts-ignore
-  w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-  var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s);
-  var dl=l!='dataLayer'?'&l='+l:'';
-  // @ts-ignore
-  j.async=true;
-  // @ts-ignore
-  j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-  if (f && f.parentNode) f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M5HXRM4X');
+(function(w: any, d: Document, s: string, l: string, i: string){
+  w[l] = w[l] || [];
+  w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+  var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s) as HTMLScriptElement;
+  var dl = l != 'dataLayer' ? '&l=' + l : '';
+  j.async = true;
+  j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+  if (f && f.parentNode) f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-M5HXRM4X');
 </script>
 <!-- End Google Tag Manager -->
