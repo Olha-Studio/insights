@@ -76,6 +76,26 @@ const image = heroImage ? heroImageMap[heroImage] : undefined;
       .last-updated-on {
         font-style: italic;
       }
+      .tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          justify-content: center;
+          margin-top: 1rem;
+      }
+      .tag {
+          display: inline-block;
+          padding: 0.25rem 0.75rem;
+          border-radius: 15px;
+          background-color: var(--gray-light);
+          color: var(--gray-dark);
+          font-size: 0.8rem;
+          text-decoration: none;
+      }
+      .tag:hover {
+          background-color: var(--accent);
+          color: white;
+      }
     </style>
   </head>
   <body>
@@ -101,6 +121,11 @@ const image = heroImage ? heroImageMap[heroImage] : undefined;
               ) }
             </div>
             <h1>{title}</h1>
+            <div class="tags">
+                {Astro.props.tags?.map(tag => (
+                    <a href={`/tags/${tag}`} class="tag">{tag}</a>
+                ))}
+            </div>
             <hr />
           </div>
           <slot />
