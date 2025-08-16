@@ -197,6 +197,7 @@ const defaultImage = defaultPlaceholder;
               src="/images/home/olha-header-photo.png"
               alt="Olha Kharlamova — designer and frontend developer"
               title="Olha Kharlamova — designer and frontend developer"
+              fetchpriority="high"
               loading="eager"
               decoding="async"
             />
@@ -272,10 +273,11 @@ const defaultImage = defaultPlaceholder;
           <div class="blog-grid">
             {posts.map((post) => {
               const image = heroImageMap[post.data.heroImage] || defaultImage;
+              const altText = `Cover image for: ${post.data.title}`;
               return (
                 <a href={`/insights/${post.id}/`} class="card">
                   {image ? (
-                    <Image src={image} alt={post.data.title} width={720} height={360} style="width:100%;height:auto;border-radius:12px;" />
+                    <Image src={image} alt={altText} width={720} height={360} style="width:100%;height:auto;border-radius:12px;" />
                   ) : null}
                   <p style="margin:.5rem 0 0; font-weight:600">{post.data.title}</p>
                 </a>
