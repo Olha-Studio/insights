@@ -23,10 +23,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         grid-template-columns: 1.1fr 0.9fr;
         gap: 2rem;
         align-items: center;
-        padding: 3rem 0 2rem;
+        padding: 4rem 0 2.5rem;
       }
       .hero h1 {
-        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-size: clamp(2.2rem, 5vw, 3.4rem);
       }
       .hero em {
         color: var(--accent);
@@ -122,11 +122,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         background: #1f37ff;
         color: #fff;
         border-radius: 16px;
-        padding: 2rem;
+        padding: 2rem 2rem 2rem 2rem;
         margin: 2rem 0 0;
+        position: relative;
+        overflow: hidden;
       }
       .cta .row { display:flex; gap:1rem; flex-wrap: wrap; margin-top: 1rem; }
       .cta .btn { background: #fff; color: #1f37ff; }
+      .cta img.tools { position: absolute; right: 1rem; bottom: 0; width: min(520px, 40%); pointer-events: none; }
 
       @media (max-width: 900px) {
         .hero { grid-template-columns: 1fr; }
@@ -155,7 +158,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
             </div>
           </div>
           <div class="hero-img">
-            <img src="/assets/insights/design-cover-raw.jpg" alt="Cleaner at work" />
+            <img src="/images/cleaner/hero-cleaning.jpg" alt="Cleaner at work" />
           </div>
         </section>
 
@@ -172,7 +175,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
         <!-- Priority -->
         <section class="priority">
-          <img src="/assets/insights/blog-placeholder-about.jpg" alt="Cozy living room" />
+          <img src="/images/cleaner/living-room-1.jpg" alt="Cozy living room" />
           <div class="box">
             <h2>Your <em style="color:var(--accent);font-style:normal;">comfort</em> is our main priority</h2>
             <p>We appreciate your trust greatly. Our clients choose our clinic because they know we are the best in the field.</p>
@@ -188,7 +191,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
             <p>Our professional clean office offers the whole range of dentistry services: treatment of caries, gum disease, tooth whitening, titanium dental implants, veneers, and more.</p>
           </div>
           <a class="play" aria-label="Play company video">
-            <img src="/assets/insights/blog-placeholder-1.jpg" alt="Cleaning video cover" />
+            <img src="/images/cleaner/video-cleaning.jpg" alt="Cleaning video cover" />
           </a>
         </section>
 
@@ -208,9 +211,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         <section class="blog">
           <h2>Our latest news from blog</h2>
           <div class="blog-grid">
-            <a href="/insights/" class="card"><img src="/assets/insights/blog-placeholder-5.jpg" alt="Latest 1" /><p>The secret of cleaning your kitchen.</p></a>
-            <a href="/insights/" class="card"><img src="/assets/insights/blog-placeholder-3.jpg" alt="Latest 2" /><p>How to clean wooden floors without creating dust.</p></a>
-            <a href="/insights/" class="card"><img src="/assets/insights/blog-placeholder-4.jpg" alt="Latest 3" /><p>The secret of cleaning your wooden furniture.</p></a>
+            <a href="/insights/" class="card"><img src="/images/cleaner/living-room-2.jpg" alt="Latest 1" /><p>The secret of cleaning your kitchen.</p></a>
+            <a href="/insights/" class="card"><img src="/images/cleaner/floor-cleaning.jpg" alt="Latest 2" /><p>How to clean wooden floors without creating dust.</p></a>
+            <a href="/insights/" class="card"><img src="/images/cleaner/kitchen-cleaning.jpg" alt="Latest 3" /><p>The secret of cleaning your wooden furniture.</p></a>
           </div>
         </section>
 
@@ -222,6 +225,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
             <a class="btn" href="tel:+1-394-496-9993">Call: +1-394-496-9993</a>
             <a class="btn" href="#book">Make An Appointment</a>
           </div>
+          <img class="tools" src="/images/cleaner/cta-tools.png" alt="Cleaning tools" />
         </section>
       </div>
     </main>
