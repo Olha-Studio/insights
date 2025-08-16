@@ -62,6 +62,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         opacity: .9;
         font-size: .95rem;
       }
+      .badge { display:flex; align-items:center; gap:.5rem; background:#fff; border:1px solid rgb(var(--gray-light)); padding:.5rem .75rem; border-radius:10px; }
+      .badge img { width:32px; height:32px; }
       .hero-img {
         border-radius: 16px;
         overflow: hidden;
@@ -86,6 +88,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         padding: 1rem;
         box-shadow: 0 2px 6px rgba(0,0,0,.04);
       }
+      .card .more { display:inline-block; margin-top:.5rem; color:#1f37ff; font-weight:600; font-size:.95rem; }
       .card .icon {
         width: 44px; height: 44px; border-radius: 10px; background: #f2f4ff;
         display: grid; place-items: center; font-size: 22px; margin-bottom: .75rem;
@@ -153,8 +156,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
               <a class="btn secondary" href="#book">Make An Appointment</a>
             </div>
             <div class="ratings">
-              <span>⭐ 4.7 out of 5 (Trustpilot)</span>
-              <span>⭐ 4.8 out of 5 (Capterra)</span>
+              <span class="badge"><img src="/images/home/2.svg" alt="Trustpilot"/> 4.7 Out of 5</span>
+              <span class="badge"><img src="/images/home/1.svg" alt="Capterra"/> 4.8 Out of 5</span>
             </div>
           </div>
           <div class="hero-img">
@@ -166,10 +169,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         <section class="services">
           <h2>We provide our best <span>cleaning</span> services for you</h2>
           <div class="service-grid">
-            <div class="card"><div class="icon">🏠</div><strong>House Cleaning</strong></div>
-            <div class="card"><div class="icon">🪟</div><strong>Window Cleaning</strong></div>
-            <div class="card"><div class="icon">🐜</div><strong>Pest Control</strong></div>
-            <div class="card"><div class="icon">🧽</div><strong>Floor Cleaning</strong></div>
+            <div class="card"><div class="icon">🏠</div><strong>House Cleaning</strong><span class="more">Discover More →</span></div>
+            <div class="card"><div class="icon">🪟</div><strong>Window Cleaning</strong><span class="more">Discover More →</span></div>
+            <div class="card"><div class="icon">🐜</div><strong>Pest Control</strong><span class="more">Discover More →</span></div>
+            <div class="card"><div class="icon">🧽</div><strong>Floor Cleaning</strong><span class="more">Discover More →</span></div>
           </div>
         </section>
 
@@ -177,6 +180,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         <section class="priority">
           <img src="/images/cleaner/living-room-1.jpg" alt="Cozy living room" />
           <div class="box">
+            <img src="/images/home/about/badge.svg" alt="About badge" style="width:64px;height:64px; margin-bottom:.5rem;" />
             <h2>Your <em style="color:var(--accent);font-style:normal;">comfort</em> is our main priority</h2>
             <p>We appreciate your trust greatly. Our clients choose our clinic because they know we are the best in the field.</p>
             <p><strong>Mon–Fri:</strong> 9AM – 22 PM • <strong>Saturday:</strong> 9AM – 20 PM</p>
