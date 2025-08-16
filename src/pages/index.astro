@@ -13,119 +13,217 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <body>
     <Header />
     <style>
-      .tooltip-wrap {
-        position: relative;
-        display: inline-block;
+      .container {
+        width: var(--ws-desktop-width);
+        max-width: calc(100% - 2rem);
+        margin: 0 auto;
       }
-
-      .tooltip-content {
-        position: absolute;
-        top: 120%;
-        left: 50%;
-        transform: translateX(-50%);
-        background: white;
-        color: black;
-        border: 1px solid #ccc;
-        padding: 1em;
-        border-radius: 8px;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.2s ease;
-        z-index: 999;
-        min-width: 220px;
+      .hero {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2rem;
+        align-items: center;
+        padding: 3rem 0 2rem;
       }
-
-      /* ✅ Keep visible when hovering either trigger OR tooltip itself */
-      .tooltip-wrap:hover .tooltip-content {
-        opacity: 1;
-        pointer-events: auto;
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3.2rem);
       }
-      .tooltip-wrap:hover .trigger {
-        text-decoration: underline;
+      .hero em {
         color: var(--accent);
+        font-style: normal;
+      }
+      .hero .cta-row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 1.25rem;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        background: var(--accent);
+        color: #111;
+        padding: .85rem 1.1rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .btn.secondary {
+        background: #1f37ff;
+        color: #fff;
+      }
+      .ratings {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 1.25rem;
+        align-items: center;
+        flex-wrap: wrap;
+        opacity: .9;
+        font-size: .95rem;
+      }
+      .hero-img {
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+      }
+
+      /* Services */
+      .services {
+        padding: 1rem 0 2rem;
+      }
+      .services h2 span { color: var(--accent); }
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid rgb(var(--gray-light));
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 2px 6px rgba(0,0,0,.04);
+      }
+      .card .icon {
+        width: 44px; height: 44px; border-radius: 10px; background: #f2f4ff;
+        display: grid; place-items: center; font-size: 22px; margin-bottom: .75rem;
+      }
+
+      /* Priority */
+      .priority {
+        display: grid; gap: 2rem; align-items: center;
+        grid-template-columns: 1fr 1fr; padding: 2rem 0;
+      }
+      .priority .box { background: #fff; border: 1px solid rgb(var(--gray-light)); padding: 1.25rem; border-radius: 12px; }
+
+      /* About + Video */
+      .about {
+        display: grid; gap: 2rem; grid-template-columns: 1fr 1fr; align-items: center; padding: 2rem 0;
+      }
+      .play {
+        position: relative; display: block;
+      }
+      .play::after {
+        content: '▶'; position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; display: grid; place-items: center; background: #fff; color: #1f37ff; border-radius: 999px; box-shadow: var(--box-shadow);
+      }
+
+      /* Stats / testimonial */
+      .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; padding: 2rem 0; }
+      .testi { background: #fff; border: 1px solid rgb(var(--gray-light)); padding: 1rem; border-radius: 12px; }
+
+      /* Blog preview */
+      .blog { padding: 2rem 0; }
+      .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
+
+      /* CTA */
+      .cta {
+        background: #1f37ff;
+        color: #fff;
+        border-radius: 16px;
+        padding: 2rem;
+        margin: 2rem 0 0;
+      }
+      .cta .row { display:flex; gap:1rem; flex-wrap: wrap; margin-top: 1rem; }
+      .cta .btn { background: #fff; color: #1f37ff; }
+
+      @media (max-width: 900px) {
+        .hero { grid-template-columns: 1fr; }
+        .priority, .about, .stats { grid-template-columns: 1fr; }
+        .service-grid { grid-template-columns: repeat(2, 1fr); }
+        .blog-grid { grid-template-columns: 1fr; }
       }
     </style>
     <main>
-      <div class="tooltip-wrap">
-        <h1>👋 Hey, I’m <span class="trigger">Olha!</span></h1>
-        <div class="tooltip-content">
-          <strong>Custom Title</strong>
-          <p>This is a paragraph inside the tooltip.</p>
-          <a href="#">Learn more →</a>
-        </div>
+      <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+          <div>
+            <h1>
+              Professional <em>Cleaning</em><br />
+              Services in Auburn.
+            </h1>
+            <p>Award winning cleaning-service company.</p>
+            <div class="cta-row">
+              <a class="btn" href="tel:+1-394-496-9993">Call: +1-394-496-9993</a>
+              <a class="btn secondary" href="#book">Make An Appointment</a>
+            </div>
+            <div class="ratings">
+              <span>⭐ 4.7 out of 5 (Trustpilot)</span>
+              <span>⭐ 4.8 out of 5 (Capterra)</span>
+            </div>
+          </div>
+          <div class="hero-img">
+            <img src="/assets/insights/design-cover-raw.jpg" alt="Cleaner at work" />
+          </div>
+        </section>
+
+        <!-- Services -->
+        <section class="services">
+          <h2>We provide our best <span>cleaning</span> services for you</h2>
+          <div class="service-grid">
+            <div class="card"><div class="icon">🏠</div><strong>House Cleaning</strong></div>
+            <div class="card"><div class="icon">🪟</div><strong>Window Cleaning</strong></div>
+            <div class="card"><div class="icon">🐜</div><strong>Pest Control</strong></div>
+            <div class="card"><div class="icon">🧽</div><strong>Floor Cleaning</strong></div>
+          </div>
+        </section>
+
+        <!-- Priority -->
+        <section class="priority">
+          <img src="/assets/insights/blog-placeholder-about.jpg" alt="Cozy living room" />
+          <div class="box">
+            <h2>Your <em style="color:var(--accent);font-style:normal;">comfort</em> is our main priority</h2>
+            <p>We appreciate your trust greatly. Our clients choose our clinic because they know we are the best in the field.</p>
+            <p><strong>Mon–Fri:</strong> 9AM – 22 PM • <strong>Saturday:</strong> 9AM – 20 PM</p>
+            <p><a class="btn" href="tel:+1-394-496-9993">Call: +1-394-496-9993</a></p>
+          </div>
+        </section>
+
+        <!-- About + Video -->
+        <section class="about">
+          <div>
+            <h2>Best <span style="color:var(--accent)">cleaning</span> company in the town</h2>
+            <p>Our professional clean office offers the whole range of dentistry services: treatment of caries, gum disease, tooth whitening, titanium dental implants, veneers, and more.</p>
+          </div>
+          <a class="play" aria-label="Play company video">
+            <img src="/assets/insights/blog-placeholder-1.jpg" alt="Cleaning video cover" />
+          </a>
+        </section>
+
+        <!-- Stats + Testimonial -->
+        <section class="stats">
+          <div>
+            <h3>4035</h3>
+            <p>Happy Customers & Counting</p>
+          </div>
+          <div class="testi">
+            <p>“Cleaner is the best service I have ever got! Professional, wide range of cleaning services, from home cleaning to office cleaning. They used advanced technologies to keep our room looking the best.”</p>
+            <p><strong>Jack Morrison</strong> — New York</p>
+          </div>
+        </section>
+
+        <!-- Blog preview -->
+        <section class="blog">
+          <h2>Our latest news from blog</h2>
+          <div class="blog-grid">
+            <a href="/insights/" class="card"><img src="/assets/insights/blog-placeholder-2.jpg" alt="Latest 1" /><p>The secret of cleaning your kitchen.</p></a>
+            <a href="/insights/" class="card"><img src="/assets/insights/blog-placeholder-3.jpg" alt="Latest 2" /><p>How to clean wooden floors without creating dust.</p></a>
+            <a href="/insights/" class="card"><img src="/assets/insights/blog-placeholder-4.jpg" alt="Latest 3" /><p>The secret of cleaning your wooden furniture.</p></a>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta">
+          <h2>Discuss our services or make an appointment</h2>
+          <p>We know details are worth it, so don't hesitate to reach out. We will get back to you to make an appointment within two business days.</p>
+          <div class="row">
+            <a class="btn" href="tel:+1-394-496-9993">Call: +1-394-496-9993</a>
+            <a class="btn" href="#book">Make An Appointment</a>
+          </div>
+        </section>
       </div>
-
-      <p>Welcome to my personal site!</p>
-      <p>
-        I’ve spent 15 years in the web world — designing, coding, and building
-        pages that work. This is where I share what I’ve learned (and what I’m
-        still figuring out).
-      </p>
-      <p>If you care about creating websites — you’re in the right place.</p>
-      <section>
-        <h2>💡 What I Share Here</h2>
-        <ul class="ws_content-list">
-          <li>Easy design tips to make your pages cleaner and clearer</li>
-          <li>Frontend how-tos — CSS3, Tailwind, Animations</li>
-          <li>Real advice on building high-conversion landing pages</li>
-          <li>Behind-the-scenes from projects, tools, and client work</li>
-          <li>
-            Progress updates on my upcoming course (for designers and small
-            business owners)
-          </li>
-        </ul>
-        <p>
-          Everything here is simple, useful, and based on real work — not just
-          theory.
-        </p>
-      </section>
-      <section>
-        <h2>🎯 Why I Started This</h2>
-        <p>
-          I wanted a space to share
-          <strong>practical things that actually help</strong> — not long-winded
-          think pieces or recycled trends. Just short, valuable ideas you can use.
-        </p>
-        <p>
-          Whether you’re a designer, small business owner, or just someone who
-          builds things online — I hope this blog gives you something useful or
-          inspiring.
-        </p>
-      </section>
-
-      <section>
-        <h2>🚀 What’s Coming</h2>
-        <p>
-          I'm working on a course for people who want to create better websites
-          — without the guesswork, fluff, or relying on someone else to “just
-          code it.”
-        </p>
-        <p>
-          👉 <a href="#subscribe">Join the waitlist</a> to get early access.
-        </p>
-      </section>
-      <section>
-        <h2>🙋‍♀️ A Bit About Me</h2>
-        <p>
-          Top Rated UX/UI designer and frontend developer. I’ve worked with
-          clients from all over the world on Upwork and beyond.
-        </p>
-        <p>
-          🔗
-          <a href="https://www.upwork.com/fl/webim" target="_blank"
-            >Check out my portfolio</a
-          >
-        </p>
-      </section>
-
-      <footer>
-        <p>
-          Thanks for being here ✨<br />
-          Feel free to <a href="/insights">browse the latest posts</a> or
-          <a href="#subscribe">subscribe</a> to stay in the loop.
-        </p>
-      </footer>
     </main>
     <Footer />
   </body>
