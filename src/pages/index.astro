@@ -3,6 +3,33 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import mpaViewTransitions from '../assets/insights/mpa-view-transitions.png';
+import defaultPlaceholder from '../assets/insights/default-placeholder.jpg';
+import blogPlaceholder2 from '../assets/insights/blog-placeholder-2.jpg';
+import blogPlaceholder3 from '../assets/insights/blog-placeholder-3.jpg';
+import blogPlaceholder4 from '../assets/insights/blog-placeholder-4.jpg';
+import blogPlaceholder5 from '../assets/insights/blog-placeholder-5.jpg';
+import blogPlaceholderAbout from '../assets/insights/blog-placeholder-about.jpg';
+import designCoverRaw from '../assets/insights/design-cover-raw.jpg';
+
+const posts = (await getCollection('insights'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const heroImageMap = {
+  '/assets/insights/mpa-view-transitions.png': mpaViewTransitions,
+  '/assets/insights/default-placeholder.jpg': defaultPlaceholder,
+  '/assets/insights/blog-placeholder-2.jpg': blogPlaceholder2,
+  '/assets/insights/blog-placeholder-3.jpg': blogPlaceholder3,
+  '/assets/insights/blog-placeholder-4.jpg': blogPlaceholder4,
+  '/assets/insights/blog-placeholder-5.jpg': blogPlaceholder5,
+  '/assets/insights/blog-placeholder-about.jpg': blogPlaceholderAbout,
+  '/assets/insights/design-cover-raw.jpg': designCoverRaw,
+};
+
+const defaultImage = defaultPlaceholder;
 ---
 
 <!doctype html>
@@ -13,6 +40,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <body>
     <Header />
     <style>
+      /* Home-only layout width */
+      main.home {
+        width: var(--ws-desktop-width);
+        max-width: calc(100% - 2rem);
+        margin: 0 auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
       .container {
         width: var(--ws-desktop-width);
         max-width: calc(100% - 2rem);
@@ -141,18 +176,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         .blog-grid { grid-template-columns: 1fr; }
       }
     </style>
-    <main>
+    <main class="home">
       <div class="container">
         <!-- Hero -->
         <section class="hero">
           <div>
-            <h1>
-              Professional <em>Cleaning</em><br />
-              Services in Auburn.
-            </h1>
-            <p>Award winning cleaning-service company.</p>
+            <h1>Insights & Trends in Design, AI, and Development</h1>
+            <p>Fresh ideas in web design and a look into the future of code, AI, and digital creativity.</p>
             <div class="cta-row">
-              <a class="btn" href="tel:+1-394-496-9993">Call: +1-394-496-9993</a>
+              <a class="btn" href="https://upwork.com/fl/webim" target="_blank" rel="noopener noreferrer">Order a project</a>
               <a class="btn secondary" href="#book">Make An Appointment</a>
             </div>
             <div class="ratings">
@@ -160,43 +192,66 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
               <span class="badge"><img src="/images/home/1.svg" alt="Capterra"/> 4.8 Out of 5</span>
             </div>
           </div>
-          <div class="hero-img">
-            <img src="/images/cleaner/1.NwapmTca_23Yc3w.webp" alt="Cleaner at work" />
-          </div>
+          <figure class="hero-img">
+            <img
+              src="/images/home/olha-header-photo.png"
+              alt="Olha Kharlamova — designer and frontend developer"
+              title="Olha Kharlamova — designer and frontend developer"
+              loading="eager"
+              decoding="async"
+            />
+          </figure>
         </section>
 
         <!-- Services -->
         <section class="services">
-          <h2>We provide our best <span>cleaning</span> services for you</h2>
+          <h2>What’s Inside</h2>
           <div class="service-grid">
-            <div class="card"><div class="icon">🏠</div><strong>House Cleaning</strong><span class="more">Discover More →</span></div>
-            <div class="card"><div class="icon">🪟</div><strong>Window Cleaning</strong><span class="more">Discover More →</span></div>
-            <div class="card"><div class="icon">🐜</div><strong>Pest Control</strong><span class="more">Discover More →</span></div>
-            <div class="card"><div class="icon">🧽</div><strong>Floor Cleaning</strong><span class="more">Discover More →</span></div>
+            <div class="card"><div class="icon">🎨</div><h3>Design Trends</h3><a class="more" href="" title="Discover more about Design Trends">Discover More →</a></div>
+            <div class="card"><div class="icon">🤖</div><h3>AI Solutions</h3><a class="more" href="" title="Discover more about AI Solutions">Discover More →</a></div>
+            <div class="card"><div class="icon">📘</div><h3>Quick Guides</h3><a class="more" href="" title="Discover more Quick Guides">Discover More →</a></div>
+            <div class="card"><div class="icon">🖥️</div><h3>UX Cases</h3><a class="more" href="" title="Discover more UX Cases">Discover More →</a></div>
           </div>
         </section>
 
         <!-- Priority -->
         <section class="priority">
-          <img src="/images/cleaner/2.CVWjnGRr_Z2tfwoR.webp" alt="Cozy living room" />
+          <figure>
+            <img
+              src="/images/home/olha-blog.png"
+              alt="Olha’s blog — design and development articles"
+              title="Olha’s blog — design and development articles"
+              width="1536"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
           <div class="box">
             <img src="/images/home/about/badge.svg" alt="About badge" style="width:64px;height:64px; margin-bottom:.5rem;" />
-            <h2>Your <em style="color:var(--accent);font-style:normal;">comfort</em> is our main priority</h2>
-            <p>We appreciate your trust greatly. Our clients choose our clinic because they know we are the best in the field.</p>
-            <p><strong>Mon–Fri:</strong> 9AM – 22 PM • <strong>Saturday:</strong> 9AM – 20 PM</p>
-            <p><a class="btn" href="tel:+1-394-496-9993">Call: +1-394-496-9993</a></p>
+            <h2>Knowledge Hub</h2>
+            <p>Quick, practical tips and resources on UI/UX design, productivity, and development. No fluff—just bite-sized insights you can read in under 5 minutes. (And yes, it’s free!)</p>
+            <p><a class="btn" href="" title="Read the Blog">Read the Blog</a></p>
           </div>
         </section>
 
         <!-- About + Video -->
         <section class="about">
           <div>
-            <h2>Best <span style="color:var(--accent)">cleaning</span> company in the town</h2>
-            <p>Our professional clean office offers the whole range of dentistry services: treatment of caries, gum disease, tooth whitening, titanium dental implants, veneers, and more.</p>
+            <h2>🌿 Where Clean Design Meets Real Business Impact</h2>
+            <p>With 15+ years in UX/UI design, I help founders and teams create interfaces and digital experiences that guide users effortlessly and convert with style. Clean design, real results  -  that’s my sweet spot.</p>
           </div>
-          <a class="play" aria-label="Play company video">
-            <img src="/images/cleaner/2.BJU5WfDB_2ng9FX.webp" alt="Cleaning video cover" />
-          </a>
+          <figure class="play" aria-label="About Olha">
+            <img
+              src="/images/home/olha-about-me.png"
+              alt="Olha — about section portrait"
+              title="Olha — about"
+              width="1024"
+              height="1536"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
         </section>
 
         <!-- Stats + Testimonial -->
@@ -206,30 +261,38 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
             <p>Happy Customers & Counting</p>
           </div>
           <div class="testi">
-            <p>“Cleaner is the best service I have ever got! Professional, wide range of cleaning services, from home cleaning to office cleaning. They used advanced technologies to keep our room looking the best.”</p>
-            <p><strong>Jack Morrison</strong> — New York</p>
+            <p>“I’m really satisfied with the work delivered. The freelancer was professional, responsive, and showed great attention to detail throughout the project. Everything was completed on time and to a high standard. I truly appreciate the effort and would be happy to work together again in the future. Highly recommended!”</p>
+            <p><strong>Jamshid Agzamkhadjaev</strong> — Uzbekistan</p>
           </div>
         </section>
 
         <!-- Blog preview -->
         <section class="blog">
-          <h2>Our latest news from blog</h2>
+          <h2>Latest articles</h2>
           <div class="blog-grid">
-            <a href="/insights/" class="card"><img src="/images/cleaner/1.uciVmc4k_GBebQ.webp" alt="Latest 1" /><p>The secret of cleaning your kitchen.</p></a>
-            <a href="/insights/" class="card"><img src="/images/cleaner/2.B1wqs21m_1Jd2z9.webp" alt="Latest 2" /><p>How to clean wooden floors without creating dust.</p></a>
-            <a href="/insights/" class="card"><img src="/images/cleaner/1.tmpiUXXN_Z3VNRz.webp" alt="Latest 3" /><p>The secret of cleaning your wooden furniture.</p></a>
+            {posts.map((post) => {
+              const image = heroImageMap[post.data.heroImage] || defaultImage;
+              return (
+                <a href={`/insights/${post.id}/`} class="card">
+                  {image ? (
+                    <Image src={image} alt={post.data.title} width={720} height={360} style="width:100%;height:auto;border-radius:12px;" />
+                  ) : null}
+                  <p style="margin:.5rem 0 0; font-weight:600">{post.data.title}</p>
+                </a>
+              );
+            })}
           </div>
         </section>
 
         <!-- CTA -->
         <section class="cta">
-          <h2>Discuss our services or make an appointment</h2>
-          <p>We know details are worth it, so don't hesitate to reach out. We will get back to you to make an appointment within two business days.</p>
+          <h2>⚡ Kickstart Your Project Today</h2>
+          <p>Book a quick call to share your goals. I’ll provide a free design and technical review, along with practical recommendations to move your project forward.</p>
           <div class="row">
-            <a class="btn" href="tel:+1-394-496-9993">Call: +1-394-496-9993</a>
+            <a class="btn" href="https://upwork.com/fl/webim" target="_blank" rel="noopener noreferrer">Order a project</a>
             <a class="btn" href="#book">Make An Appointment</a>
           </div>
-          <img class="tools" src="/images/cleaner/cta.BP09K7ZU_ZLmWKA.webp" alt="Cleaning tools" />
+          
         </section>
       </div>
     </main>
