@@ -23,10 +23,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         grid-template-columns: 1.1fr 0.9fr;
         gap: 2rem;
         align-items: center;
-        padding: 3rem 0 2rem;
+        padding: 4rem 0 2.5rem;
       }
       .hero h1 {
-        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-size: clamp(2.2rem, 5vw, 3.4rem);
       }
       .hero em {
         color: var(--accent);
@@ -62,6 +62,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         opacity: .9;
         font-size: .95rem;
       }
+      .badge { display:flex; align-items:center; gap:.5rem; background:#fff; border:1px solid rgb(var(--gray-light)); padding:.5rem .75rem; border-radius:10px; }
+      .badge img { width:32px; height:32px; }
       .hero-img {
         border-radius: 16px;
         overflow: hidden;
@@ -86,6 +88,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         padding: 1rem;
         box-shadow: 0 2px 6px rgba(0,0,0,.04);
       }
+      .card .more { display:inline-block; margin-top:.5rem; color:#1f37ff; font-weight:600; font-size:.95rem; }
       .card .icon {
         width: 44px; height: 44px; border-radius: 10px; background: #f2f4ff;
         display: grid; place-items: center; font-size: 22px; margin-bottom: .75rem;
@@ -122,11 +125,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         background: #1f37ff;
         color: #fff;
         border-radius: 16px;
-        padding: 2rem;
+        padding: 2rem 2rem 2rem 2rem;
         margin: 2rem 0 0;
+        position: relative;
+        overflow: hidden;
       }
       .cta .row { display:flex; gap:1rem; flex-wrap: wrap; margin-top: 1rem; }
       .cta .btn { background: #fff; color: #1f37ff; }
+      .cta img.tools { position: absolute; right: 1rem; bottom: 0; width: min(520px, 40%); pointer-events: none; }
 
       @media (max-width: 900px) {
         .hero { grid-template-columns: 1fr; }
@@ -150,12 +156,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
               <a class="btn secondary" href="#book">Make An Appointment</a>
             </div>
             <div class="ratings">
-              <span>⭐ 4.7 out of 5 (Trustpilot)</span>
-              <span>⭐ 4.8 out of 5 (Capterra)</span>
+              <span class="badge"><img src="/images/home/2.svg" alt="Trustpilot"/> 4.7 Out of 5</span>
+              <span class="badge"><img src="/images/home/1.svg" alt="Capterra"/> 4.8 Out of 5</span>
             </div>
           </div>
           <div class="hero-img">
-            <img src="/assets/insights/design-cover-raw.jpg" alt="Cleaner at work" />
+            <img src="/images/cleaner/1.NwapmTca_23Yc3w.webp" alt="Cleaner at work" />
           </div>
         </section>
 
@@ -163,17 +169,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         <section class="services">
           <h2>We provide our best <span>cleaning</span> services for you</h2>
           <div class="service-grid">
-            <div class="card"><div class="icon">🏠</div><strong>House Cleaning</strong></div>
-            <div class="card"><div class="icon">🪟</div><strong>Window Cleaning</strong></div>
-            <div class="card"><div class="icon">🐜</div><strong>Pest Control</strong></div>
-            <div class="card"><div class="icon">🧽</div><strong>Floor Cleaning</strong></div>
+            <div class="card"><div class="icon">🏠</div><strong>House Cleaning</strong><span class="more">Discover More →</span></div>
+            <div class="card"><div class="icon">🪟</div><strong>Window Cleaning</strong><span class="more">Discover More →</span></div>
+            <div class="card"><div class="icon">🐜</div><strong>Pest Control</strong><span class="more">Discover More →</span></div>
+            <div class="card"><div class="icon">🧽</div><strong>Floor Cleaning</strong><span class="more">Discover More →</span></div>
           </div>
         </section>
 
         <!-- Priority -->
         <section class="priority">
-          <img src="/assets/insights/blog-placeholder-about.jpg" alt="Cozy living room" />
+          <img src="/images/cleaner/2.CVWjnGRr_Z2tfwoR.webp" alt="Cozy living room" />
           <div class="box">
+            <img src="/images/home/about/badge.svg" alt="About badge" style="width:64px;height:64px; margin-bottom:.5rem;" />
             <h2>Your <em style="color:var(--accent);font-style:normal;">comfort</em> is our main priority</h2>
             <p>We appreciate your trust greatly. Our clients choose our clinic because they know we are the best in the field.</p>
             <p><strong>Mon–Fri:</strong> 9AM – 22 PM • <strong>Saturday:</strong> 9AM – 20 PM</p>
@@ -188,7 +195,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
             <p>Our professional clean office offers the whole range of dentistry services: treatment of caries, gum disease, tooth whitening, titanium dental implants, veneers, and more.</p>
           </div>
           <a class="play" aria-label="Play company video">
-            <img src="/assets/insights/blog-placeholder-1.jpg" alt="Cleaning video cover" />
+            <img src="/images/cleaner/2.BJU5WfDB_2ng9FX.webp" alt="Cleaning video cover" />
           </a>
         </section>
 
@@ -208,9 +215,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         <section class="blog">
           <h2>Our latest news from blog</h2>
           <div class="blog-grid">
-            <a href="/insights/" class="card"><img src="/assets/insights/blog-placeholder-2.jpg" alt="Latest 1" /><p>The secret of cleaning your kitchen.</p></a>
-            <a href="/insights/" class="card"><img src="/assets/insights/blog-placeholder-3.jpg" alt="Latest 2" /><p>How to clean wooden floors without creating dust.</p></a>
-            <a href="/insights/" class="card"><img src="/assets/insights/blog-placeholder-4.jpg" alt="Latest 3" /><p>The secret of cleaning your wooden furniture.</p></a>
+            <a href="/insights/" class="card"><img src="/images/cleaner/1.uciVmc4k_GBebQ.webp" alt="Latest 1" /><p>The secret of cleaning your kitchen.</p></a>
+            <a href="/insights/" class="card"><img src="/images/cleaner/2.B1wqs21m_1Jd2z9.webp" alt="Latest 2" /><p>How to clean wooden floors without creating dust.</p></a>
+            <a href="/insights/" class="card"><img src="/images/cleaner/1.tmpiUXXN_Z3VNRz.webp" alt="Latest 3" /><p>The secret of cleaning your wooden furniture.</p></a>
           </div>
         </section>
 
@@ -222,6 +229,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
             <a class="btn" href="tel:+1-394-496-9993">Call: +1-394-496-9993</a>
             <a class="btn" href="#book">Make An Appointment</a>
           </div>
+          <img class="tools" src="/images/cleaner/cta.BP09K7ZU_ZLmWKA.webp" alt="Cleaning tools" />
         </section>
       </div>
     </main>
