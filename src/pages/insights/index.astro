@@ -2,7 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { SITE_TITLE } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { Image } from 'astro:assets';
@@ -18,6 +18,9 @@ import designCoverRaw from '../../assets/insights/design-cover-raw.jpg';
 const posts = (await getCollection('insights')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+const allTags = posts.flatMap(post => post.data.tags || []);
+const uniqueTags = [...new Set(allTags)];
 
 const heroImageMap = {
   '/assets/insights/mpa-view-transitions.png': mpaViewTransitions,
@@ -38,8 +41,6 @@ const defaultImage = defaultPlaceholder;
 	<head>
 		<BaseHead title={`All Insights | ${SITE_TITLE}`} description="Browse all UX/UI, frontend, and design insights by Olha Kharlamova." />
 		<style>
-
-
 			main {
 				width: 960px;
 			}
@@ -70,17 +71,11 @@ const defaultImage = defaultPlaceholder;
 				font-size: 2.369rem;
 			}
 			ul li img[data-image-component="true"] {
-				  aspect-ratio: 2 / 1;
-				    object-fit: cover;
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-
-
-
-
-
-
+                aspect-ratio: 2 / 1;
+                object-fit: cover;
+                margin-bottom: 0.5rem;
+                border-radius: 12px;
+            }
 			ul li a {
 				display: block;
 			}
@@ -100,6 +95,36 @@ const defaultImage = defaultPlaceholder;
 			ul a:hover img {
 				box-shadow: var(--box-shadow);
 			}
+            .tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+            }
+            .tag {
+                display: inline-block;
+                padding: 0.25rem 0.75rem;
+                border-radius: 15px;
+                background-color: var(--gray-light);
+                color: var(--gray-dark);
+                font-size: 0.8rem;
+                text-decoration: none;
+            }
+            .tag:hover {
+                background-color: var(--accent);
+                color: white;
+            }
+            .all-tags {
+                margin-top: 3rem;
+                text-align: center;
+            }
+            .tags-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                justify-content: center;
+                margin-top: 1rem;
+            }
 			@media (max-width: 720px) {
 				ul {
 					gap: 0.5em;
@@ -135,6 +160,11 @@ const defaultImage = defaultPlaceholder;
 										<p class="date">
 											<FormattedDate date={post.data.pubDate} />
 										</p>
+                                        <div class="tags">
+                                            {post.data.tags?.map(tag => (
+                                                <a href={`/tags/${tag}`} class="tag">{tag}</a>
+                                            ))}
+                                        </div>
 									</a>
 								</li>
 							);
@@ -142,6 +172,14 @@ const defaultImage = defaultPlaceholder;
 					}
 				</ul>
 			</section>
+            <section class="all-tags">
+                <h2>All Tags</h2>
+                <div class="tags-container">
+                    {uniqueTags.map(tag => (
+                        <a href={`/tags/${tag}`} class="tag">{tag}</a>
+                    ))}
+                </div>
+            </section>
 		</main>
 		<Footer />
 	</body>

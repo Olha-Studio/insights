@@ -4,6 +4,7 @@ description: A practical guide to animating SVG wire paths with fading stroke
   effects using gradient masks and CSS keyframes.
 pubDate: 2025-05-31T19:59:00.000Z
 updatedDate: 2025-05-31T19:59:00.000Z
+tags: ['svg', 'css', 'animation']
 ---
 
 # Flowing Wire Animations with Fading Ends (SVG + CSS)
