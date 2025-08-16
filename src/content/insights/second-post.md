@@ -3,6 +3,7 @@ title: '🆕 New CSS Features to Watch in 2025'
 description: 'CSS continues to evolve — here are some of the most exciting features landing (or expanding support) in 2025:'
 pubDate: 'Jul 15 2022'
 heroImage: '/assets/insights/blog-placeholder-4.jpg'
+tags: ['css', 'features', '2025']
 ---
 
 ## ✅ 1. `:has()` — Parent Selector

@@ -1,0 +1,83 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('insights');
+  const allTags = posts.flatMap(post => post.data.tags || []);
+  const uniqueTags = [...new Set(allTags)];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = posts.filter(post => post.data.tags?.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={`Posts tagged with "${tag}"`} description={`A collection of posts tagged with "${tag}"`} />
+		<style>
+			.tag-header {
+				text-align: center;
+				margin-bottom: 2rem;
+			}
+			ul {
+				list-style-type: none;
+				padding: 0;
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+				gap: 1rem;
+			}
+			li {
+				border: 1px solid #ddd;
+				border-radius: 8px;
+				padding: 1rem;
+				transition: box-shadow 0.2s ease;
+			}
+			li:hover {
+				box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+			}
+			a {
+				text-decoration: none;
+				color: inherit;
+				display: block;
+			}
+			h2 {
+				margin: 0 0 0.5rem 0;
+				font-size: 1.25rem;
+			}
+			.date {
+				color: #888;
+				font-size: 0.9rem;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1 class="tag-header">Posts tagged with "{tag}"</h1>
+			<ul>
+				{posts.map(post => (
+					<li>
+						<a href={`/insights/${post.slug}/`}>
+							<h2>{post.data.title}</h2>
+							<p class="date"><FormattedDate date={post.data.pubDate} /></p>
+							<p>{post.data.description}</p>
+						</a>
+					</li>
+				))}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -17,4 +17,5 @@ collections:
       - { label: "Published Date", name: "pubDate", widget: "datetime" }
       - { label: "Updated Date", name: "updatedDate", widget: "datetime", required: false }
       - { label: "Hero Image URL", name: "heroImage", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
