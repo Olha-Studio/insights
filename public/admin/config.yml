@@ -18,5 +18,6 @@ collections:
       - { label: "Updated Date", name: "updatedDate", widget: "datetime", required: false }
       - { label: "Hero Image URL", name: "heroImage", widget: "string", required: false }
       - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Private (blur after preview)", name: "isPrivate", widget: "boolean", required: false, default: false }
       - { label: "Layout (auto for 'cases')", name: "layout", widget: "string", required: false, hint: "Leave empty. If you add tag 'cases', site will use Case layout automatically." }
       - { label: "Body", name: "body", widget: "markdown" }
