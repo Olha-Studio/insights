@@ -19,6 +19,17 @@
       0 2px 6px rgba(var(--gray), 25%),
       0 8px 24px rgba(var(--gray), 33%),
       0 16px 32px rgba(var(--gray), 33%);
+
+    /* Fluid typography tokens */
+    --fluid-unit: calc(1vw + 1vh);
+    --font-min-body: 16px;
+    --font-max-body: 18px;
+    --font-min-h1: 32px;  /* 2.0rem baseline */
+    --font-max-h1: 48px;  /* 3.0rem max */
+    --font-min-h2: 28px;  /* 1.75rem */
+    --font-max-h2: 36px;  /* 2.25rem */
+    --font-min-h3: 22px;  /* 1.375rem */
+    --font-max-h3: 28px;  /* 1.75rem */
   }
 }
 
