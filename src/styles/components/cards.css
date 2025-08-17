@@ -1,0 +1,6 @@
+@layer components {
+  .card .more { display:inline-block; margin-top:.5rem; color:#1f37ff; font-weight:600; font-size:.95rem; }
+  .card .icon { width:44px; height:44px; border-radius:10px; background:#f2f4ff; display:grid; place-items:center; font-size:22px; margin-bottom:.75rem; }
+}
+
+

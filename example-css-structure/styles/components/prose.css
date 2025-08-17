@@ -1,0 +1,17 @@
+@layer components {
+  .prose { max-width: 70ch; }
+  .prose p { margin: 0 0 var(--space-4); }
+  .prose h2 { margin-top: var(--space-8); }
+  .prose img { border-radius: var(--radius-1); }
+  .prose code {
+    background: hsl(0 0% 0% / .06);
+    padding: .15em .35em; border-radius: .3em; font-size: .95em;
+  }
+  .prose pre {
+    padding: var(--space-4);
+    border-radius: var(--radius-2);
+    overflow: auto;
+    background: hsl(0 0% 0% / .04);
+  }
+  .dark .prose code { background: hsl(0 0% 100% / .08); }
+}

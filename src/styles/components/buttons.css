@@ -1,0 +1,6 @@
+@layer components {
+  .btn--primary { background: var(--accent); color: #111; }
+  .btn--brand { background: #1f37ff; color: #fff; }
+}
+
+
