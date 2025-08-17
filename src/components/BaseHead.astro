@@ -85,6 +85,18 @@ const metaDescription = description || SITE_DESCRIPTION;
 
 <!-- Google Tag Manager -->
 <script>
+(function(){
+  try {
+    var hash = window.location.hash || '';
+    if (hash && hash.indexOf('#recovery_token=') === 0 && window.location.pathname !== '/admin/') {
+      var token = hash.substring('#recovery_token='.length);
+      var dest = '/admin/#recovery_token=' + encodeURIComponent(token);
+      window.location.replace(dest);
+    }
+  } catch (e) {}
+})();
+</script>
+<script>
 (function(w: unknown, d: Document, s: string, l: string, i: string){
   w[l] = w[l] || [];
   w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
