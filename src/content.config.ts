@@ -13,6 +13,7 @@ const insights = defineCollection({
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
         tags: z.array(z.string()).optional(),
+        isPrivate: z.boolean().optional(),
 	}),
 });
 
