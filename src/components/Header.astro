@@ -88,6 +88,10 @@ import { SITE_TITLE } from "../consts";
         </svg>
       </a>
     </div>
+    <div class="header-cta">
+      <a class="btn" href="https://upwork.com/fl/webim" target="_blank" rel="noopener noreferrer">Order a project</a>
+    </div>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">☰</button>
   </nav>
 </header>
 <style>
@@ -135,13 +139,25 @@ import { SITE_TITLE } from "../consts";
     text-decoration: none;
     border-bottom-color: var(--accent);
   }
+  .header-cta { margin-left: 0.5rem; }
+  .menu-toggle { display: none; background: transparent; border: 0; font-size: 1.5rem; line-height: 1; padding: .5rem; cursor: pointer; }
   .social-links,
   .social-links a {
     display: flex;
   }
   @media (max-width: 720px) {
-    .social-links {
-      display: none;
-    }
+    .social-links { display: none; }
+    .menu-toggle { display: inline-flex; }
+    .internal-links { display: none; position: absolute; right: 1rem; top: 64px; background: #fff; border: 1px solid rgb(var(--gray-light)); border-radius: 8px; padding: .5rem 1rem; flex-direction: column; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+    header.open .internal-links { display: flex; }
+    nav { position: relative; }
   }
 </style>
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const headerEl = document.querySelector('header');
+  toggle?.addEventListener('click', () => {
+    const isOpen = headerEl?.classList.toggle('open');
+    if (toggle) toggle.setAttribute('aria-expanded', String(!!isOpen));
+  });
+</script>
