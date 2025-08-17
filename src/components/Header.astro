@@ -43,53 +43,29 @@ import { SITE_TITLE } from "../consts";
         <span class="sr-only">{SITE_TITLE}</span>
       </a>
     </h2>
-    <div class="internal-links">
+    <div class="internal-links" id="site-menu">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/cases">Cases</HeaderLink>
       <HeaderLink href="/insights">Insights</HeaderLink>
       <HeaderLink href="/about">About</HeaderLink>
     </div>
-    <div class="social-links">
-      <a href="https://m.webtoo.ls/@olha" target="_blank">
-        <span class="sr-only">Follow me on Mastodon</span>
-
-        <svg
-          viewBox="0 0 75 75"
-          width="30"
-          height="30"
-          style="max-width: 30px; vertical-align: middle"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <path
-            d="M68.22,0H6.78C3.04,0,0,3.04,0,6.78v61.43c0,3.75,3.04,6.78,6.78,6.78h61.43c3.75,0,6.78-3.04,6.78-6.78V6.78c0-3.75-3.04-6.78-6.78-6.78ZM23.21,64.76c0,1.09-.88,1.97-1.97,1.97h-8.4c-1.09,0-1.97-.88-1.97-1.97V29.53c0-1.09.88-1.97,1.97-1.97h8.4c1.09,0,1.97.88,1.97,1.97v35.23ZM17.03,24.23c-4.41,0-7.98-3.57-7.98-7.98s3.57-7.98,7.98-7.98,7.98,3.57,7.98,7.98-3.57,7.98-7.98,7.98Z"
-            style="fill: #00010d;"></path>
-        </svg>
-      </a>
-      <a href="https://twitter.com/olhakharlamova" target="_blank">
-        <span class="sr-only">Follow me on Twitter</span>
-
-        <svg
-          viewBox="0 0 75 75"
-          width="30"
-          height="30"
-          style="max-width: 30px; vertical-align: middle"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <path
-            d="M52.66,0h-30.31C10.01,0,0,10.01,0,22.34v30.31c0,12.34,10.01,22.34,22.34,22.35h30.31c12.34-.01,22.33-10.01,22.34-22.35v-30.31c0-12.34-10.01-22.34-22.34-22.34ZM67.46,52.66c0,8.17-6.63,14.8-14.8,14.8h-30.31c-8.17,0-14.8-6.63-14.8-14.8h0v-30.32c0-8.17,6.62-14.8,14.79-14.8h30.32c8.17,0,14.8,6.63,14.8,14.8v30.31Z"
-            style="fill: #00010d;"></path>
-          <path
-            d="M37.5,18.11c-10.7,0-19.39,8.7-19.39,19.39s8.7,19.39,19.39,19.39,19.39-8.7,19.39-19.39-8.69-19.39-19.39-19.39ZM37.5,49.35c-6.54,0-11.85-5.3-11.85-11.84,0-6.54,5.3-11.85,11.84-11.85h0c6.54,0,11.85,5.3,11.85,11.85,0,6.54-5.3,11.84-11.84,11.85ZM56.93,13.61c2.57,0,4.65,2.08,4.64,4.65,0,2.57-2.08,4.65-4.65,4.64-2.56,0-4.64-2.08-4.64-4.64,0-2.56,1.74-4.65,4.65-4.65Z"
-            style="fill: #00010d;"></path>
-        </svg>
-      </a>
-    </div>
-    <div class="header-cta">
-      <a class="btn" href="https://upwork.com/fl/webim" target="_blank" rel="noopener noreferrer">Order a project</a>
+    <div class="right-group">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/olhakharlamova/" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 75 75" width="24" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M68.22,0H6.78C3.04,0,0,3.04,0,6.78v61.43c0,3.75,3.04,6.78,6.78,6.78h61.43c3.75,0,6.78-3.04,6.78-6.78V6.78c0-3.75-3.04-6.78-6.78-6.78ZM23.21,64.76c0,1.09-.88,1.97-1.97,1.97h-8.4c-1.09,0-1.97-.88-1.97-1.97V29.53c0-1.09.88-1.97,1.97-1.97h8.4c1.09,0,1.97.88,1.97,1.97v35.23ZM17.03,24.23c-4.41,0-7.98-3.57-7.98-7.98s3.57-7.98,7.98-7.98,7.98,3.57,7.98,7.98-3.57,7.98-7.98,7.98Z" fill="currentColor" />
+          </svg>
+        </a>
+        <a href="https://instagram.com/olhakharlamova" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 75 75" width="24" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M52.66,0h-30.31C10.01,0,0,10.01,0,22.34v30.31c0,12.34,10.01,22.34,22.34,22.35h30.31c12.34-.01,22.33-10.01,22.34-22.35v-30.31c0-12.34-10.01-22.34-22.34-22.34ZM67.46,52.66c0,8.17-6.63,14.8-14.8,14.8h-30.31c-8.17,0-14.8-6.63-14.8-14.8h0v-30.32c0-8.17,6.62-14.8,14.79-14.8h30.32c8.17,0,14.8,6.63,14.8,14.8v30.31Z" fill="currentColor" />
+            <path d="M37.5,18.11c-10.7,0-19.39,8.7-19.39,19.39s8.7,19.39,19.39,19.39,19.39-8.7,19.39-19.39-8.69-19.39-19.39-19.39ZM37.5,49.35c-6.54,0-11.85-5.3-11.85-11.84,0-6.54,5.3-11.85,11.84-11.85h0c6.54,0,11.85,5.3,11.85,11.85,0,6.54-5.3,11.84-11.84,11.85ZM56.93,13.61c2.57,0,4.65,2.08,4.64,4.65,0,2.57-2.08,4.65-4.65,4.64-2.56,0-4.64-2.08-4.64-4.64,0-2.56,1.74-4.65,4.65-4.65Z" fill="currentColor" />
+          </svg>
+        </a>
+      </div>
+      <div class="header-cta">
+        <a class="btn" href="https://upwork.com/fl/webim" target="_blank" rel="noopener noreferrer">Order a project</a>
+      </div>
     </div>
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">☰</button>
   </nav>
@@ -105,19 +81,11 @@ import { SITE_TITLE } from "../consts";
     border-bottom: 1px solid rgba(var(--gray-light), 1);
     backdrop-filter: saturate(160%) blur(8px);
   }
-  nav h2 {
-    padding: 0;
-  }
-  h2 {
-    margin: 0;
-    font-size: 1em;
-  }
-
-  h2 a,
-  h2 a.active {
-    text-decoration: none;
-  }
+  nav h2 { padding: 0; }
+  h2 { margin: 0; font-size: 1em; }
+  h2 a, h2 a.active { text-decoration: none; }
   nav {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -129,29 +97,19 @@ import { SITE_TITLE } from "../consts";
     margin-right: auto;
     min-height: 64px;
   }
-  .internal-links a {
-    padding: 1em 0.5em;
-    color: var(--black);
-    border-bottom: 4px solid transparent;
-    text-decoration: none;
-  }
-  .internal-links a.active {
-    text-decoration: none;
-    border-bottom-color: var(--accent);
-  }
+  .internal-links { position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: .5rem; }
+  .internal-links a { padding: 1em 0.5em; color: var(--black); border-bottom: 4px solid transparent; text-decoration: none; }
+  .internal-links a.active { text-decoration: none; border-bottom-color: var(--accent); }
+  .right-group { display: flex; align-items: center; gap: 2rem; }
+  .social-links { display: flex; gap: .5rem; }
   .header-cta { margin-left: 0.5rem; }
   .header-cta .btn { padding: .7rem 1rem; min-height: 40px; line-height: 1; }
   .menu-toggle { display: none; background: transparent; border: 0; font-size: 1.5rem; line-height: 1; padding: .5rem; cursor: pointer; }
-  .social-links,
-  .social-links a {
-    display: flex;
-  }
   @media (max-width: 720px) {
     .social-links { display: none; }
     .menu-toggle { display: inline-flex; }
-    .internal-links { display: none; position: absolute; right: 1rem; top: 64px; background: #fff; border: 1px solid rgb(var(--gray-light)); border-radius: 8px; padding: .5rem 1rem; flex-direction: column; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+    .internal-links { display: none; position: absolute; right: 1rem; top: 64px; background: #fff; border: 1px solid rgb(var(--gray-light)); border-radius: 8px; padding: .5rem 1rem; flex-direction: column; box-shadow: 0 6px 18px rgba(0,0,0,.08); transform: none; left: auto; }
     header.open .internal-links { display: flex; }
-    nav { position: relative; }
   }
 </style>
 <script>
