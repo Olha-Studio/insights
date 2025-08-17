@@ -1,2 +1,0 @@
-/* Define cascade order once; import this first */
-@layer reset, tokens, base, utilities, components, overrides;
