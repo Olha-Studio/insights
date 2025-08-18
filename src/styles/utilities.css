@@ -1,0 +1,7 @@
+@layer utilities {
+  /* Site-wide container matches header nav sizing */
+  .container { width: 100%; max-width: var(--ws-desktop-width); padding-left: 1rem; padding-right: 1rem; margin: 0 auto; }
+  .card { background: #fff; border: 1px solid rgb(var(--gray-light)); border-radius: 0; padding: 1rem; box-shadow: none; }
+}
+
+

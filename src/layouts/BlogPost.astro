@@ -132,7 +132,7 @@ const image = heroImage ? heroImageMap[heroImage] : undefined;
       <article>
         <div class="hero-image">
           {image && (
-            <Image src={image} alt={title} width={720} height={360} style="width:100%;height:auto;border-radius:12px;box-shadow:var(--box-shadow);" />
+            <Image src={image} alt={`Cover image for: ${title}`} width={720} height={360} style="width:100%;height:auto;border-radius:12px;box-shadow:var(--box-shadow);" />
           )}
         </div>
         <div class="prose">
