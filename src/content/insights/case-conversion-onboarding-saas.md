@@ -69,10 +69,25 @@ layout: "../layouts/CasePost.astro"
 ---
 
 ### FAQ
-**How long did this take?** 6 weeks including analysis, design, copy, and rollout.
 
-**What data did you track?** Step views, submissions, validation errors, abandon, device, campaign.
-
-**Can this apply to my product?** Yes—trial, freemium, or demo funnels benefit from the same pattern.
+<section class="faq" aria-label="Frequently Asked Questions">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary><span class="q">How long did this take?</span><span class="arrow" aria-hidden="true"></span></summary>
+      <div class="a"><p>6 weeks including analysis, UX/design, copywriting, instrumentation, rollout, and iteration.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span class="q">What data did you track?</span><span class="arrow" aria-hidden="true"></span></summary>
+      <div class="a"><p>Step views, form submits, validation errors, abandon rates, device, campaign source, and variant.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span class="q">Can this apply to my product?</span><span class="arrow" aria-hidden="true"></span></summary>
+      <div class="a"><p>Yes—trial, freemium, and demo funnels benefit from the same guided onboarding and progressive disclosure.</p></div>
+    </details>
+  </div>
+  <p style="margin-top:1rem;"><a class="btn" href="#">Discuss your case →</a></p>
+  
+</section>
 
 

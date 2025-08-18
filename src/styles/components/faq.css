@@ -1,0 +1,33 @@
+@layer components {
+  .faq { margin-top: 2rem; }
+  .faq h2 { margin: 0 0 1rem 0; }
+  .faq-list { display: grid; gap: .5rem; }
+
+  .faq-item { 
+    border: 1px solid rgb(var(--gray-light)); 
+    border-radius: 12px; 
+    background: #fff; 
+    padding: .25rem .75rem; 
+    overflow: hidden;
+  }
+  .faq-item[open] { box-shadow: 0 2px 6px rgba(0,0,0,.04); }
+
+  .faq-item > summary { 
+    list-style: none; 
+    display: flex; 
+    align-items: center; 
+    gap: .75rem; 
+    cursor: pointer; 
+    padding: .75rem 0; 
+  }
+  .faq-item > summary::-webkit-details-marker { display: none; }
+
+  .faq-item .q { font-weight: 600; color: var(--ws-main-color); }
+  .faq-item .arrow { margin-left: auto; width: 1rem; height: 1rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform .2s ease; opacity: .6; }
+  .faq-item[open] .arrow { transform: rotate(225deg); opacity: 1; }
+
+  .faq-item .a { color: rgb(var(--gray-dark)); padding: 0 0 .75rem 0; }
+  .faq-item .a p { margin: 0; }
+}
+
+
