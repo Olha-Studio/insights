@@ -8,7 +8,10 @@ import { SITE_TITLE } from "../consts";
     <h2 class="brand">
       <a href="/" aria-label={SITE_TITLE} class="brand-link">
         <img src="/images/home/logo-avatar.webp" alt="Olha avatar" width="50" height="50" class="brand-avatar" />
-        <span class="brand-title">Olha K. | UI-UX Dev</span>
+        <div class="brand-meta">
+          <span class="brand-title">Olha Kharlamova</span>
+          <span class="brand-subtitle">Top UI/UX Designer</span>
+        </div>
       </a>
     </h2>
     <div class="internal-links" id="site-menu">
@@ -29,7 +32,7 @@ import { SITE_TITLE } from "../consts";
   header {
     margin: 0;
     background: rgba(255,255,255,0.92);
-    box-shadow: 0 2px 8px rgba(var(--black), 5%);
+    box-shadow: 0 1px 2px rgba(var(--black), 5%);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -40,7 +43,9 @@ import { SITE_TITLE } from "../consts";
   h2 { margin: 0; font-size: 1em; }
   .brand-link { display:flex; align-items:center; gap:.5rem; text-decoration:none; color: inherit; }
   .brand-avatar { width:50px; height:50px; border-radius:50%; display:block; }
-  .brand-title { font-weight:600; color: var(--ws-main-color); }
+  .brand-meta { display:flex; flex-direction:column; line-height:1.3; }
+  .brand-title { font-weight:400; color: var(--ws-main-color); }
+  .brand-subtitle { display:flex; align-items:center; gap:.4rem; color: var(--ws-secondary-color); font-size:.85rem; font-weight: 500; }
   h2 a, h2 a.active { text-decoration: none; }
   nav {
     position: relative;
@@ -61,7 +66,7 @@ import { SITE_TITLE } from "../consts";
   .right-group { display: flex; align-items: center; gap: 2rem; }
   .social-links { display: flex; gap: .5rem; }
   .header-cta { margin-left: 0.5rem; }
-  .header-cta .btn { padding: .7rem 1rem; min-height: 40px; line-height: 1; }
+  /* Buttons inherit global component styles; no header-specific overrides */
   .menu-toggle { display: none; background: transparent; border: 0; font-size: 1.5rem; line-height: 1; padding: .5rem; cursor: pointer; }
   @media (max-width: 720px) {
     .social-links { display: none; }

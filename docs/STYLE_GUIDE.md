@@ -16,9 +16,11 @@ Project UI style guide (Astro + Decap + Netlify)
   - Primary accent: `--accent` (#eaa22f). Text colors from tokens.
   - Ensure WCAG AA on text and interactive states.
 
-- Buttons
-  - Base class `.btn`. Secondary is outline: `border: 2px solid #1f37ff; background: transparent; color: #1f37ff`.
-  - Border radius: 999px; spacing `.85rem 1.1rem`.
+-- Buttons
+  - Use only `.btn` and `.btn.secondary` (component styles live in `src/styles/components/buttons.css`).
+  - Primary (filled): `background: var(--ws-main-color); color: #fff; border: 1px solid var(--ws-main-color); border-radius: 999px; padding: .85rem 1.1rem;`
+  - Secondary (outline): `background: transparent; color: var(--ws-main-color); border: 2px solid var(--ws-main-color); border-radius: 999px; padding: .85rem 1.1rem;`
+  - Do not override button colors in pages or header; inherit from component.
 
 - Layout width and gutters
   - Shared container: `max-width: var(--ws-desktop-width); padding: 0 1rem; margin: 0 auto`.

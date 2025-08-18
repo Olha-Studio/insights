@@ -1,8 +1,6 @@
 @layer utilities {
   /* Site-wide container matches header nav sizing */
   .container { width: 100%; max-width: var(--ws-desktop-width); padding-left: 1rem; padding-right: 1rem; margin: 0 auto; }
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; background: var(--ws-main-color); color: #fff; padding: .7rem 1rem; min-height: 40px; line-height: 1; border-radius: 0; text-decoration: none; font-weight: 600; border: 1px solid var(--ws-main-color); }
-  .btn.secondary { background: #fff; color: var(--ws-main-color); border: 1px solid var(--ws-main-color); }
   .card { background: #fff; border: 1px solid rgb(var(--gray-light)); border-radius: 0; padding: 1rem; box-shadow: none; }
 }
 
