@@ -93,8 +93,7 @@
     clip: rect(1px 1px 1px 1px); clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%); white-space: nowrap;
   }
 
-  a, button { transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease; }
-  a:hover, button:hover { transform: translateY(-1px); }
+  a:not(.btn), button:not(.btn) { transition: color 0.2s ease, background-color 0.2s ease; }
 }
 
 
