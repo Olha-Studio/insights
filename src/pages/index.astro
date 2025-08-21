@@ -2,31 +2,32 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import CTA from "../components/CTA.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
-import mpaViewTransitions from '../assets/insights/mpa-view-transitions.png';
-import defaultPlaceholder from '../assets/insights/default-placeholder.jpg';
-import blogPlaceholder2 from '../assets/insights/blog-placeholder-2.jpg';
-import blogPlaceholder3 from '../assets/insights/blog-placeholder-3.jpg';
-import blogPlaceholder4 from '../assets/insights/blog-placeholder-4.jpg';
-import blogPlaceholder5 from '../assets/insights/blog-placeholder-5.jpg';
-import blogPlaceholderAbout from '../assets/insights/blog-placeholder-about.jpg';
-import designCoverRaw from '../assets/insights/design-cover-raw.jpg';
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import mpaViewTransitions from "../assets/insights/mpa-view-transitions.png";
+import defaultPlaceholder from "../assets/insights/default-placeholder.jpg";
+import blogPlaceholder2 from "../assets/insights/blog-placeholder-2.jpg";
+import blogPlaceholder3 from "../assets/insights/blog-placeholder-3.jpg";
+import blogPlaceholder4 from "../assets/insights/blog-placeholder-4.jpg";
+import blogPlaceholder5 from "../assets/insights/blog-placeholder-5.jpg";
+import blogPlaceholderAbout from "../assets/insights/blog-placeholder-about.jpg";
+import designCoverRaw from "../assets/insights/design-cover-raw.jpg";
 
-const posts = (await getCollection('insights'))
+const posts = (await getCollection("insights"))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 
 const heroImageMap = {
-  '/assets/insights/mpa-view-transitions.png': mpaViewTransitions,
-  '/assets/insights/default-placeholder.jpg': defaultPlaceholder,
-  '/assets/insights/blog-placeholder-2.jpg': blogPlaceholder2,
-  '/assets/insights/blog-placeholder-3.jpg': blogPlaceholder3,
-  '/assets/insights/blog-placeholder-4.jpg': blogPlaceholder4,
-  '/assets/insights/blog-placeholder-5.jpg': blogPlaceholder5,
-  '/assets/insights/blog-placeholder-about.jpg': blogPlaceholderAbout,
-  '/assets/insights/design-cover-raw.jpg': designCoverRaw,
+  "/assets/insights/mpa-view-transitions.png": mpaViewTransitions,
+  "/assets/insights/default-placeholder.jpg": defaultPlaceholder,
+  "/assets/insights/blog-placeholder-2.jpg": blogPlaceholder2,
+  "/assets/insights/blog-placeholder-3.jpg": blogPlaceholder3,
+  "/assets/insights/blog-placeholder-4.jpg": blogPlaceholder4,
+  "/assets/insights/blog-placeholder-5.jpg": blogPlaceholder5,
+  "/assets/insights/blog-placeholder-about.jpg": blogPlaceholderAbout,
+  "/assets/insights/design-cover-raw.jpg": designCoverRaw,
 };
 
 const defaultImage = defaultPlaceholder;
@@ -47,7 +48,14 @@ const defaultImage = defaultPlaceholder;
         margin: 0;
         padding: 0;
       }
-      .container { max-width: var(--ws-desktop-width); width: 100%; padding-left: 1rem; padding-right: 1rem; margin-left: auto; margin-right: auto; }
+      .container {
+        max-width: var(--ws-desktop-width);
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
       .hero {
         display: grid;
         grid-template-columns: 1.1fr 0.9fr;
@@ -75,11 +83,22 @@ const defaultImage = defaultPlaceholder;
         margin-top: 1.25rem;
         align-items: center;
         flex-wrap: wrap;
-        opacity: .9;
-        font-size: .95rem;
+        opacity: 0.9;
+        font-size: 0.95rem;
       }
-      .badge { display:flex; align-items:center; gap:.5rem; background:#fff; border:1px solid rgb(var(--gray-light)); padding:.5rem .75rem; border-radius:10px; }
-      .badge img { width:32px; height:32px; }
+      .badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #fff;
+        border: 1px solid rgb(var(--gray-light));
+        padding: 0.5rem 0.75rem;
+        border-radius: 10px;
+      }
+      .badge img {
+        width: 32px;
+        height: 32px;
+      }
       .hero-img {
         border-radius: 16px;
         overflow: hidden;
@@ -90,7 +109,9 @@ const defaultImage = defaultPlaceholder;
       .services {
         padding: 1rem 0 2rem;
       }
-      .services h2 span { color: var(--accent); }
+      .services h2 span {
+        color: var(--accent);
+      }
       .service-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -102,76 +123,135 @@ const defaultImage = defaultPlaceholder;
         border: 1px solid rgb(var(--gray-light));
         border-radius: 12px;
         padding: 1rem;
-        box-shadow: 0 2px 6px rgba(0,0,0,.04);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
       }
-      .card .more { display:inline-block; margin-top:.5rem; color: var(--ws-main-color); font-weight:600; font-size:.95rem; }
+      .card .more {
+        display: inline-block;
+        margin-top: 0.5rem;
+        color: var(--ws-main-color);
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
       .card .icon {
-        width: 44px; height: 44px; border-radius: 10px; background: #f2f4ff;
-        display: grid; place-items: center; font-size: 22px; margin-bottom: .75rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: #f2f4ff;
+        display: grid;
+        place-items: center;
+        font-size: 22px;
+        margin-bottom: 0.75rem;
       }
 
       /* Priority */
       .priority {
-        display: grid; gap: 2rem; align-items: center;
-        grid-template-columns: 1fr 1fr; padding: 2rem 0;
+        display: grid;
+        gap: 2rem;
+        align-items: center;
+        grid-template-columns: 1fr 1fr;
+        padding: 2rem 0;
       }
-      .priority .box { background: #fff; border: 1px solid rgb(var(--gray-light)); padding: 1.25rem; border-radius: 12px; }
+      .priority .box {
+        background: #fff;
+        border: 1px solid rgb(var(--gray-light));
+        padding: 1.25rem;
+        border-radius: 12px;
+      }
 
       /* About + Video */
       .about {
-        display: grid; gap: 2rem; grid-template-columns: 1fr 1fr; align-items: center; padding: 2rem 0;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding: 2rem 0;
       }
       .play {
-        position: relative; display: block;
+        position: relative;
+        display: block;
       }
       .play::after {
-        content: '▶'; position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; display: grid; place-items: center; background: #fff; color: var(--ws-main-color); border-radius: 999px; box-shadow: var(--box-shadow);
+        content: "▶";
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 64px;
+        height: 64px;
+        display: grid;
+        place-items: center;
+        background: #fff;
+        color: var(--ws-main-color);
+        border-radius: 999px;
+        box-shadow: var(--box-shadow);
       }
 
       /* Stats / testimonial */
-      .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; padding: 2rem 0; }
-      .testi { background: #fff; border: 1px solid rgb(var(--gray-light)); padding: 1rem; border-radius: 12px; }
+      .stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+        padding: 2rem 0;
+      }
+      .testi {
+        background: #fff;
+        border: 1px solid rgb(var(--gray-light));
+        padding: 1rem;
+        border-radius: 12px;
+      }
 
       /* Blog preview */
-      .blog { padding: 2rem 0; }
-      .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
-
-      /* CTA */
-      .cta {
-        background: var(--ws-main-color);
-        color: #fff;
-        border-radius: 16px;
-        padding: 2rem 2rem 2rem 2rem;
-        margin: 2rem 0 0;
-        position: relative;
-        overflow: hidden;
+      .blog {
+        padding: 2rem 0;
       }
-      .cta .row { display:flex; gap:1rem; flex-wrap: wrap; margin-top: 1rem; }
-      .cta img.tools { position: absolute; right: 1rem; bottom: 0; width: min(520px, 40%); pointer-events: none; }
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+
 
       @media (max-width: 900px) {
-        .hero { grid-template-columns: 1fr; }
-        .priority, .about, .stats { grid-template-columns: 1fr; }
-        .service-grid { grid-template-columns: repeat(2, 1fr); }
-        .blog-grid { grid-template-columns: 1fr; }
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .priority,
+        .about,
+        .stats {
+          grid-template-columns: 1fr;
+        }
+        .service-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .blog-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
     <main class="home">
       <div class="container">
         <!-- Hero -->
         <section class="hero">
-          <div>
+          <div class="ws_hero-left-column">
             <h1>Insights & Trends in Design, AI, and Development</h1>
-            <p>Fresh ideas in web design and a look into the future of code, AI, and digital creativity.</p>
+            <p class="ws_p_pretty-2rem">
+              Exploring the intersection of <strong>web design, AI, and development.</strong> This
+              blog covers everything from new tools to timeless principles,
+              showing how technology and creativity shape the next era of
+              digital experiences.
+            </p>
             <div class="cta-row">
-              <a class="btn" href="https://upwork.com/fl/webim" target="_blank" rel="noopener noreferrer">Order a project</a>
+              <a
+                class="btn"
+                href="https://upwork.com/fl/webim"
+                target="_blank"
+                rel="noopener noreferrer">Order a project</a
+              >
               <a class="btn secondary" href="/cases">Latest Cases</a>
             </div>
-            <div class="ratings">
-              <span class="badge"><img src="/images/home/2.svg" alt="Trustpilot"/> 4.7 Out of 5</span>
-              <span class="badge"><img src="/images/home/1.svg" alt="Capterra"/> 4.8 Out of 5</span>
-        </div>
-      </div>
+          </div>
           <figure class="hero-img">
             <img
               src="/images/home/olha-kharlamova-designer.webp"
@@ -191,10 +271,30 @@ const defaultImage = defaultPlaceholder;
         <section class="services">
           <h2>What’s Inside</h2>
           <div class="service-grid">
-            <div class="card"><div class="icon">🎨</div><h3>Design Trends</h3><a class="more" href="" title="Discover more about Design Trends">Discover More →</a></div>
-            <div class="card"><div class="icon">🤖</div><h3>AI Solutions</h3><a class="more" href="" title="Discover more about AI Solutions">Discover More →</a></div>
-            <div class="card"><div class="icon">📘</div><h3>Quick Guides</h3><a class="more" href="" title="Discover more Quick Guides">Discover More →</a></div>
-            <div class="card"><div class="icon">🖥️</div><h3>UX Cases</h3><a class="more" href="" title="Discover more UX Cases">Discover More →</a></div>
+            <div class="card">
+              <h3>Design Trends</h3><a
+                class="more"
+                href=""
+                title="Discover more about Design Trends">Discover More →</a>
+            </div>
+            <div class="card">
+             <h3>AI Solutions</h3><a
+                class="more"
+                href=""
+                title="Discover more about AI Solutions">Discover More →</a>
+            </div>
+            <div class="card">
+              <h3>Quick Guides</h3><a
+                class="more"
+                href=""
+                title="Discover more Quick Guides">Discover More →</a>
+            </div>
+            <div class="card">
+             <h3>UX Cases</h3><a
+                class="more"
+                href=""
+                title="Discover more UX Cases">Discover More →</a>
+            </div>
           </div>
         </section>
 
@@ -202,83 +302,93 @@ const defaultImage = defaultPlaceholder;
         <section class="priority">
           <figure>
             <img
-              src="/images/home/olha-blog.png"
+              src="/images/home/image-section-1-home.png"
               alt="Olha’s blog — design and development articles"
               title="Olha’s blog — design and development articles"
-              width="1536"
-              height="1024"
+              width="1140"
+              height="800"
               loading="lazy"
               decoding="async"
             />
           </figure>
           <div class="box">
-            <img src="/images/home/about/badge.svg" alt="About badge" style="width:64px;height:64px; margin-bottom:.5rem;" />
-            <h2>Knowledge Hub</h2>
-            <p>Quick, practical tips and resources on UI/UX design, productivity, and development. No fluff—just bite-sized insights you can read in under 5 minutes. (And yes, it’s free!)</p>
-            <p><a class="btn" href="" title="Read the Blog">Read the Blog</a></p>
-          </div>
-      </section>
-
-        <!-- About + Video -->
-        <section class="about">
-          <div>
-            <h2>🌿 Where Clean Design Meets Real Business Impact</h2>
-            <p>With 15+ years in UX/UI design, I help founders and teams create interfaces and digital experiences that guide users effortlessly and convert with style. Clean design, real results  -  that’s my sweet spot.</p>
-          </div>
-          <figure class="play" aria-label="About Olha">
             <img
-              src="/images/home/olha-about-me.png"
-              alt="Olha — about section portrait"
-              title="Olha — about"
-              width="1024"
-              height="1536"
+              src="/images/home/about/badge.svg"
+              alt="About badge"
+              style="width:64px;height:64px; margin-bottom:.5rem;"
+            />
+            <h2>Insights & Trends</h2>
+            <p class="ws_p_pretty-1rem">
+              Quick, practical tips and resources on UI/UX design, productivity,
+              and development. No fluff—just bite-sized insights you can read in
+              under 5 minutes. (And yes, it’s free!)
+            </p>
+            <p>
+              <a class="btn secondary" href="" title="Read the Blog">Read the Blog</a>
+            </p>
+          </div>
+        </section>
+
+        <!-- Priority -->
+        <section class="priority">
+          <div class="box">
+            <img
+              src="/images/home/about/badge.svg"
+              alt="About badge"
+              style="width:64px;height:64px; margin-bottom:.5rem;"
+            />
+            <h2>About me</h2>
+            <p class="ws_p_pretty-1rem">
+              Quick, practical tips and resources on UI/UX design, productivity,
+              and development. No fluff—just bite-sized insights you can read in
+              under 5 minutes. (And yes, it’s free!)
+            </p>
+            <p>
+              <a class="btn secondary" href="" title="Olha Kharlamova — designer and web developer">Read more</a>
+            </p>
+          </div>
+          <figure>
+            <img
+              src="/images/home/image-section-2-home.png"
+              alt="Olha’s blog — design and development articles"
+              title="Olha’s blog — design and development articles"
+              width="1140"
+              height="800"
               loading="lazy"
               decoding="async"
             />
           </figure>
-      </section>
-
-        <!-- Stats + Testimonial -->
-        <section class="stats">
-          <div>
-            <h3>4035</h3>
-            <p>Happy Customers & Counting</p>
-          </div>
-          <div class="testi">
-            <p>“I’m really satisfied with the work delivered. The freelancer was professional, responsive, and showed great attention to detail throughout the project. Everything was completed on time and to a high standard. I truly appreciate the effort and would be happy to work together again in the future. Highly recommended!”</p>
-            <p><strong>Jamshid Agzamkhadjaev</strong> — Uzbekistan</p>
-          </div>
-      </section>
-
+        </section>
         <!-- Blog preview -->
         <section class="blog">
           <h2>Latest articles</h2>
           <div class="blog-grid">
-            {posts.map((post) => {
-              const image = heroImageMap[post.data.heroImage] || defaultImage;
-              const altText = `Cover image for: ${post.data.title}`;
-              return (
-                <a href={`/insights/${post.id}/`} class="card">
-                  {image ? (
-                    <Image src={image} alt={altText} width={720} height={360} style="width:100%;height:auto;border-radius:12px;" />
-                  ) : null}
-                  <p style="margin:.5rem 0 0; font-weight:600">{post.data.title}</p>
-                </a>
-              );
-            })}
+            {
+              posts.map((post) => {
+                const image = heroImageMap[post.data.heroImage] || defaultImage;
+                const altText = `Cover image for: ${post.data.title}`;
+                return (
+                  <a href={`/insights/${post.id}/`} class="card">
+                    {image ? (
+                      <Image
+                        src={image}
+                        alt={altText}
+                        width={720}
+                        height={360}
+                        style="width:100%;height:auto;border-radius:12px;"
+                      />
+                    ) : null}
+                    <p style="margin:.5rem 0 0; font-weight:600">
+                      {post.data.title}
+                    </p>
+                  </a>
+                );
+              })
+            }
           </div>
-      </section>
-
-        <!-- CTA -->
-        <section class="cta">
-          <h2>⚡ Kickstart Your Project Today</h2>
-          <p>Book a quick call to share your goals. I’ll provide a free design and technical review, along with practical recommendations to move your project forward.</p>
-          <div class="row">
-            <a class="btn" href="https://upwork.com/fl/webim" target="_blank" rel="noopener noreferrer">Order a project</a>
-            <a class="btn" href="#book">Make An Appointment</a>
-          </div>
-          
         </section>
+
+        <CTA />
       </div>
     </main>
     <Footer />

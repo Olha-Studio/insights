@@ -3,7 +3,9 @@
   main.home { width: 100%; max-width: var(--ws-desktop-width); margin: 0 auto; padding-left: 1rem; padding-right: 1rem; }
 
   .hero { display:grid; grid-template-columns: 1.1fr 0.9fr; gap:2rem; align-items:center; padding:4rem 0 2.5rem; }
+  .ws_hero-left-column {margin-top: -4rem;}
   .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+  .hero .ws_p_pretty-2rem {text-wrap: balance; padding: 2rem 0 1rem 0;}
   .hero em { color: var(--accent); font-style: normal; }
   .hero .cta-row { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.25rem; }
   .ratings { display:flex; gap:1.5rem; margin-top:1.25rem; align-items:center; flex-wrap:wrap; opacity:.9; font-size:.95rem; }
@@ -11,6 +13,9 @@
   .badge img { width:32px; height:32px; }
   .hero-img { border-radius:16px; overflow:hidden; }
   .hero-img img { width: 472px; height: 542px; display:block; }
+
+  .ws_p_pretty-1rem {text-wrap: balance; padding: 1rem 0 0.5rem 0;}
+
 
   .services { padding: 1rem 0 2rem; }
   .services h2 span { color: var(--accent); }
@@ -29,8 +34,7 @@
   .blog { padding:2rem 0; }
   .blog-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem; margin-top:1rem; }
 
-  .cta { background: var(--ws-main-color); color:#fff; border-radius:16px; padding:2rem; margin:2rem 0 0; position:relative; overflow:hidden; }
-  .cta .row { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem; }
+
   /* Buttons inherit global component styles */
 
   @media (max-width: 900px) {
